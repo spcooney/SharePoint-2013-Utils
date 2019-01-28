@@ -3,11 +3,11 @@ using System.Resources;
 using System.Runtime.InteropServices;
 
 [assembly: log4net.Config.XmlConfigurator]
-[assembly: AssemblyTitle("Spc.SharePoint.Utils.WinForm")]
+[assembly: AssemblyTitle("SharePoint 2013 Util")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Shawn P. Cooney")]
-[assembly: AssemblyProduct("Spc.SharePoint.Utils.WinForm")]
+[assembly: AssemblyProduct("SharePoint 2013 Util")]
 [assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
