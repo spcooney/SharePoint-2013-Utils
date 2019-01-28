@@ -1,9 +1,11 @@
 ﻿namespace Spc.SharePoint.Utils.WinForm.Forms
 {
+    using log4net;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
     using System.Reflection;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary>
@@ -13,6 +15,7 @@
     {
         #region "Properties"
 
+        private static readonly ILog Log = LogManager.GetLogger(typeof(CoreWinForm));
         private IntPtr _handle;
 
         #endregion
@@ -21,6 +24,13 @@
 
         public CoreWinForm()
         {
+            Application.ThreadException += new ThreadExceptionEventHandler(Application_Errors);
+        }
+
+        private static void Application_Errors(object sender, ThreadExceptionEventArgs t)
+        {
+            Log.Error(t.Exception.Message);
+            Log.Error(t.Exception.StackTrace);
         }
 
         #endregion

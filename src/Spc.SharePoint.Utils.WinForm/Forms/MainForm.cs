@@ -25,11 +25,17 @@
         public MainForm()
         {
             InitializeComponent();
+            InitForm();
         }
 
         #endregion
 
         #region "Methods"
+
+        private void InitForm()
+        {
+            this.Text = base.AssemblyTitleWithVersion;
+        }
 
         #endregion
 
