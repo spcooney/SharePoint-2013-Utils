@@ -12,6 +12,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keys", "Keys", "{DE683B00-7
 		Solution\Keys\SPC.snk = Solution\Keys\SPC.snk
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Assemblies", "External Assemblies", "{85818888-FBAC-4A0C-985C-3630CB272719}"
+	ProjectSection(SolutionItems) = preProject
+		Solution\External Assemblies\Ionic.Zlib.dll = Solution\External Assemblies\Ionic.Zlib.dll
+		Solution\External Assemblies\log4net.dll = Solution\External Assemblies\log4net.dll
+		Solution\External Assemblies\Microsoft.SharePoint.dll = Solution\External Assemblies\Microsoft.SharePoint.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spc.SharePoint.Utils.Core", "Spc.SharePoint.Utils.Core\Spc.SharePoint.Utils.Core.csproj", "{C8B957ED-01F8-49D0-A6DC-B4C62DCB5B02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +31,16 @@ Global
 		{33801E20-8D5B-45FC-ACE2-06DAE0831E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33801E20-8D5B-45FC-ACE2-06DAE0831E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33801E20-8D5B-45FC-ACE2-06DAE0831E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B957ED-01F8-49D0-A6DC-B4C62DCB5B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B957ED-01F8-49D0-A6DC-B4C62DCB5B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B957ED-01F8-49D0-A6DC-B4C62DCB5B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B957ED-01F8-49D0-A6DC-B4C62DCB5B02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DE683B00-719A-4C24-8CBF-9A6DFE187D59} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
+		{85818888-FBAC-4A0C-985C-3630CB272719} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 	EndGlobalSection
 EndGlobal
