@@ -43,6 +43,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Solution\External Assemblies\Microsoft.SharePoint.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +57,7 @@
     <Compile Include="Helper\Log4NetHelper.cs" />
     <Compile Include="Helper\NullUtil.cs" />
     <Compile Include="Helper\SPListHelper.cs" />
+    <Compile Include="Models\IisAppPool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

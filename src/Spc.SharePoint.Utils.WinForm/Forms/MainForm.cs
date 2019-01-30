@@ -1,6 +1,7 @@
 ﻿namespace Spc.SharePoint.Utils.WinForm.Forms
 {
     using log4net;
+    using Spc.SharePoint.Utils.WinForm.Panels;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -17,6 +18,7 @@
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(MainForm));
         private List<Control> _ctrlFocusHistory;
+        private IisMgrUsrCtrl _usrCtrlIisMgr;
 
         #endregion
 
@@ -25,6 +27,7 @@
         public MainForm()
         {
             InitializeComponent();
+            InitUserControls();
             InitForm();
         }
 
@@ -167,10 +170,17 @@
             LoadFontSize();
         }
 
+        private void InitUserControls()
+        {
+            _usrCtrlIisMgr = new IisMgrUsrCtrl();
+            _usrCtrlIisMgr.Dock = DockStyle.Fill;
+        }
+
         private void UpdateFontSize(float fontSize)
         {
             List<Control> ctrls = new List<Control>();
             this.GetAllControls(this, ref ctrls);
+            this.GetAllControls(this.UsrCtrlIisMgr, ref ctrls);
             foreach (Control c in ctrls)
             {
                 if (c.GetType().BaseType == typeof(TextBoxBase))
@@ -243,9 +253,9 @@
                 //case WinFormStrConstants.NodeNames.NodeClipboard:
                 //    this.BindUserControl(this.UsrCtrlClipboard);
                 //    break;
-                //case WinFormStrConstants.NodeNames.NodeIISProcesses:
-                //    this.BindUserControl(this.UsrCtrlIISMgr);
-                //    break;
+                case WinFormStrConstants.NodeNames.NodeIISProcesses:
+                    this.BindUserControl(_usrCtrlIisMgr);
+                    break;
                 //case WinFormStrConstants.NodeNames.NodeWinServices:
                 //    this.BindUserControl(this.UsrCtrlWinServices);
                 //    break;
@@ -355,6 +365,22 @@
             set
             {
                 _ctrlFocusHistory = value;
+            }
+        }
+
+        #endregion
+
+        #region "Accessors"
+
+        public IisMgrUsrCtrl UsrCtrlIisMgr
+        {
+            get
+            {
+                return _usrCtrlIisMgr;
+            }
+            set
+            {
+                _usrCtrlIisMgr = value;
             }
         }
 
