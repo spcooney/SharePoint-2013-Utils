@@ -107,7 +107,20 @@
     <None Include="Resources\FormIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\BlueBullet16x16.png" />
+    <Content Include="Resources\Clipboard16x16.png" />
+    <Content Include="Resources\DarkBlueBullet16x16.png" />
+    <Content Include="Resources\FAVICON.ICO" />
+    <Content Include="Resources\Globe16x16.png" />
+    <Content Include="Resources\Microsoft16x16.png" />
+    <Content Include="Resources\ParentNode16x16.png" />
+    <Content Include="Resources\Photoshop16x16.png" />
     <Content Include="Resources\Repair.ico" />
+    <Content Include="Resources\Script16x16.png" />
+    <Content Include="Resources\Services16x16.png" />
+    <Content Include="Resources\SharePoint16x16.png" />
+    <Content Include="Resources\Transparent.png" />
+    <Content Include="Resources\Web16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

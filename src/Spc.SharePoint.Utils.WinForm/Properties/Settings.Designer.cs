@@ -34,5 +34,17 @@ namespace Spc.SharePoint.Utils.WinForm.Properties {
                 this["IsMaximized"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int TextFontSize {
+            get {
+                return ((int)(this["TextFontSize"]));
+            }
+            set {
+                this["TextFontSize"] = value;
+            }
+        }
     }
 }
