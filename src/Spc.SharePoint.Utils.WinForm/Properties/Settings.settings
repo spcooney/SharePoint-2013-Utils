@@ -5,8 +5,14 @@
     <Setting Name="IsMaximized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="TextFontSize" Type="System.Int32" Scope="User">
+    <Setting Name="TextFontSize" Type="System.Single" Scope="User">
       <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="LastSelectedNodeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SplitterDistance" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">160</Value>
     </Setting>
   </Settings>
 </SettingsFile>

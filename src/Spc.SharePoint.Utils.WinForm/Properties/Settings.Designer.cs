@@ -38,12 +38,36 @@ namespace Spc.SharePoint.Utils.WinForm.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("8")]
-        public int TextFontSize {
+        public float TextFontSize {
             get {
-                return ((int)(this["TextFontSize"]));
+                return ((float)(this["TextFontSize"]));
             }
             set {
                 this["TextFontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastSelectedNodeName {
+            get {
+                return ((string)(this["LastSelectedNodeName"]));
+            }
+            set {
+                this["LastSelectedNodeName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("160")]
+        public int SplitterDistance {
+            get {
+                return ((int)(this["SplitterDistance"]));
+            }
+            set {
+                this["SplitterDistance"] = value;
             }
         }
     }
