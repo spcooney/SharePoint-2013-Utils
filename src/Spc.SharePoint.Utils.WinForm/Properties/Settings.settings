@@ -14,5 +14,8 @@
     <Setting Name="SplitterDistance" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">160</Value>
     </Setting>
+    <Setting Name="WinServiceNames" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">W3SVC;MSSQLSERVER;SPTimerV4;SPSearchHostController;IISADMIN;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

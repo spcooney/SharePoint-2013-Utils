@@ -70,5 +70,14 @@ namespace Spc.SharePoint.Utils.WinForm.Properties {
                 this["SplitterDistance"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("W3SVC;MSSQLSERVER;SPTimerV4;SPSearchHostController;IISADMIN;")]
+        public string WinServiceNames {
+            get {
+                return ((string)(this["WinServiceNames"]));
+            }
+        }
     }
 }
