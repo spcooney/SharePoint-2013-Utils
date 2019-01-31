@@ -199,9 +199,14 @@
             this.GetAllControls(this.UsrCtrlWinSvcs, ref ctrls);
             foreach (Control c in ctrls)
             {
-                if (c.GetType().BaseType == typeof(TextBoxBase))
+                Type ctrlType = c.GetType();
+                if (ctrlType == typeof(TextBoxBase))
                 {
                     c.Font = new Font(c.Font.Name, fontSize);
+                }
+                else if (ctrlType == typeof(DataGridView))
+                {
+                    ((DataGridView)c).Font = new Font(c.Font.Name, fontSize);
                 }
             }
         }

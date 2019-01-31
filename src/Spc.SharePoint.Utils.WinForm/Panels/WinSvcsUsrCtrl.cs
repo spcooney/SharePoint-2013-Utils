@@ -35,12 +35,17 @@
             GridTimer.Interval = (15 * 1000 * 60);
             GridTimer.Tick += new EventHandler(GridTimer_Tick);
             GridTimer.Start();
+            GridProcesses.FontChanged += new EventHandler(GridProcesses_FontChanged);
         }
 
         #endregion
 
         #region "Form Events"
 
+        private void GridProcesses_FontChanged(object sender, EventArgs e)
+        {
+            BindCustomServices();
+        }
 
         protected void Restart_Click(object sender, EventArgs e)
         {

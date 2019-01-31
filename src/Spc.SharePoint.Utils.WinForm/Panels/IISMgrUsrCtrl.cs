@@ -27,6 +27,7 @@
             GridTimer.Interval = (15 * 1000 * 60);
             GridTimer.Tick += new EventHandler(GridTimer_Tick);
             GridTimer.Start();
+            GridProcesses.FontChanged += new EventHandler(GridProcesses_FontChanged);
         }
 
         #endregion
@@ -36,6 +37,11 @@
         private void GridContextMenu_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void GridProcesses_FontChanged(object sender, EventArgs e)
+        {
+            BindAppPools();
         }
 
         protected void Recycle_Click(object sender, EventArgs e)
