@@ -26,6 +26,8 @@
             internal const string NodeClipboard = "NodeClipboard";
             /// <summary>NodeSharePoint</summary>
             internal const string NodeSharePoint = "NodeSharePoint";
+            /// <summary>NodeSharePointList</summary>
+            internal const string NodeSharePointList = "NodeSharePointList";
             /// <summary>NodeSharePointFeature</summary>
             internal const string NodeSharePointFeature = "NodeSharePointFeature";
             /// <summary>NodeIIS</summary>
@@ -54,6 +56,8 @@
             internal const string NodeClipboard = "Clipboard";
             /// <summary>SharePoint</summary>
             internal const string NodeSharePoint = "SharePoint";
+            /// <summary>List</summary>
+            internal const string NodeSharePointList = "List";
             /// <summary>Feature</summary>
             internal const string NodeFeature = "Feature";
             /// <summary>IIS</summary>

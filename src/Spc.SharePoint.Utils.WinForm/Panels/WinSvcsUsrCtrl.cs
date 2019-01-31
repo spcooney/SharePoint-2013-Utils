@@ -1,17 +1,15 @@
 ﻿namespace Spc.SharePoint.Utils.WinForm.Panels
 {
     using log4net;
-    using Microsoft.Web.Administration;
     using Spc.SharePoint.Utils.Core.Helper;
     using Spc.SharePoint.Utils.Core.Models;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ServiceProcess;
     using System.Windows.Forms;
     using SWF = System.Windows.Forms;
 
-    public partial class WinSvcsUsrCtrl : UserControl
+    public partial class WinSvcsUsrCtrl : CoreUsrCtrl
     {
         #region "Properties"
 

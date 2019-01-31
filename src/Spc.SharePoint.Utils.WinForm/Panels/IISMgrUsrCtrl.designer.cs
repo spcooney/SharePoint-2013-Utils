@@ -32,10 +32,10 @@
             this.Splitter = new System.Windows.Forms.SplitContainer();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.GridProcesses = new System.Windows.Forms.DataGridView();
+            this.GridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
-            this.GridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.recycleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
             this.Splitter.Panel1.SuspendLayout();
@@ -44,7 +44,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridProcesses)).BeginInit();
             this.TblHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).BeginInit();
-            this.GridContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Splitter
@@ -63,6 +62,7 @@
             // Splitter.Panel2
             // 
             this.Splitter.Panel2.Controls.Add(this.GridProcesses);
+            this.Splitter.Panel2.Padding = new System.Windows.Forms.Padding(3);
             this.Splitter.Size = new System.Drawing.Size(992, 581);
             this.Splitter.SplitterDistance = 28;
             this.Splitter.SplitterWidth = 1;
@@ -93,11 +93,17 @@
             this.GridProcesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridProcesses.ContextMenuStrip = this.GridContextMenu;
             this.GridProcesses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridProcesses.Location = new System.Drawing.Point(0, 0);
+            this.GridProcesses.Location = new System.Drawing.Point(3, 3);
             this.GridProcesses.Name = "GridProcesses";
             this.GridProcesses.ReadOnly = true;
-            this.GridProcesses.Size = new System.Drawing.Size(992, 552);
+            this.GridProcesses.Size = new System.Drawing.Size(986, 546);
             this.GridProcesses.TabIndex = 0;
+            // 
+            // GridContextMenu
+            // 
+            this.GridContextMenu.Name = "GridContextMenu";
+            this.GridContextMenu.Size = new System.Drawing.Size(61, 4);
+            this.GridContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.GridContextMenu_Opening);
             // 
             // TblHeader
             // 
@@ -139,12 +145,6 @@
             this.LblHeader.Text = "IIS Application Pools";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // GridContextMenu
-            // 
-            this.GridContextMenu.Name = "GridContextMenu";
-            this.GridContextMenu.Size = new System.Drawing.Size(153, 48);
-            this.GridContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.GridContextMenu_Opening);
-            // 
             // recycleToolStripMenuItem
             // 
             this.recycleToolStripMenuItem.Name = "recycleToolStripMenuItem";
@@ -171,7 +171,6 @@
             this.TblHeader.ResumeLayout(false);
             this.TblHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).EndInit();
-            this.GridContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

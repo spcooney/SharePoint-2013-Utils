@@ -18,6 +18,8 @@
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(MainForm));
         private List<Control> _ctrlFocusHistory;
+        private List<CoreUsrCtrl> _usrControls;
+        private SPListUsrCtrl _usrCtrlSPList;
         private IisMgrUsrCtrl _usrCtrlIisMgr;
         private WinSvcsUsrCtrl _usrCtrlWinSvcs;
 
@@ -54,11 +56,33 @@
         /// </summary>
         private void BindTreeNodes()
         {
+            #region "Root Node"
+
             TreeNode tnDevTools = new TreeNode();
             tnDevTools.Name = WinFormStrConstants.NodeNames.NodeDevTools;
             tnDevTools.Text = WinFormStrConstants.NodeText.NodeDevTools;
             tnDevTools.ImageIndex = 6;
             tnDevTools.SelectedImageIndex = 6;
+
+            #endregion
+
+            #region "SharePoint"
+
+            TreeNode tnSharePoint = new TreeNode();
+            tnSharePoint.Name = WinFormStrConstants.NodeNames.NodeSharePoint;
+            tnSharePoint.Text = WinFormStrConstants.NodeText.NodeSharePoint;
+            tnSharePoint.ImageIndex = 4;
+            tnSharePoint.SelectedImageIndex = 4;
+            TreeNode tnSPList = new TreeNode();
+            tnSPList.Name = WinFormStrConstants.NodeNames.NodeSharePointList;
+            tnSPList.Text = WinFormStrConstants.NodeText.NodeSharePointList;
+            tnSPList.ImageIndex = 8;
+            tnSPList.SelectedImageIndex = 11;
+
+            #endregion
+
+            #region "IIS"
+
             TreeNode tnIIS = new TreeNode();
             tnIIS.Name = WinFormStrConstants.NodeNames.NodeIIS;
             tnIIS.Text = WinFormStrConstants.NodeText.NodeIIS;
@@ -69,6 +93,11 @@
             tnIISProcesses.Text = WinFormStrConstants.NodeText.NodeIISProcesses;
             tnIISProcesses.ImageIndex = 8;
             tnIISProcesses.SelectedImageIndex = 11;
+
+            #endregion
+
+            #region "Windows"
+
             TreeNode tnWin = new TreeNode();
             tnWin.Name = WinFormStrConstants.NodeNames.NodeWindows;
             tnWin.Text = WinFormStrConstants.NodeText.NodeWindows;
@@ -79,11 +108,19 @@
             tnWinSvcs.Text = WinFormStrConstants.NodeText.NodeWinServices;
             tnWinSvcs.ImageIndex = 8;
             tnWinSvcs.SelectedImageIndex = 11;
+
+            #endregion
+
             // Build the tree
+            // Build level 2 nodes
+            tnSharePoint.Nodes.Add(tnSPList);
             tnIIS.Nodes.Add(tnIISProcesses);
             tnWin.Nodes.Add(tnWinSvcs);
+            // Build level 1 nodes
+            tnDevTools.Nodes.Add(tnSharePoint);
             tnDevTools.Nodes.Add(tnIIS);
             tnDevTools.Nodes.Add(tnWin);
+            // Add root to the tree
             TreeNav.Nodes.Add(tnDevTools);
             TreeNav.ExpandAll();
             string selNodeName = AppSettings.Instance.LastSelectedNodeName;
@@ -143,10 +180,15 @@
 
         private void InitUserControls()
         {
-            _usrCtrlIisMgr = new IisMgrUsrCtrl();
-            _usrCtrlIisMgr.Dock = DockStyle.Fill;
-            _usrCtrlWinSvcs = new WinSvcsUsrCtrl();
-            _usrCtrlWinSvcs.Dock = DockStyle.Fill;
+            UsrCtrlSPList = new SPListUsrCtrl();
+            UsrCtrlSPList.Dock = DockStyle.Fill;
+            UsrCtrlIisMgr = new IisMgrUsrCtrl();
+            UsrCtrlIisMgr.Dock = DockStyle.Fill;
+            UsrCtrlWinSvcs = new WinSvcsUsrCtrl();
+            UsrCtrlWinSvcs.Dock = DockStyle.Fill;
+            UserControls.Add(UsrCtrlSPList);
+            UserControls.Add(UsrCtrlIisMgr);
+            UserControls.Add(UsrCtrlWinSvcs);
         }
 
         private void UpdateFontSize(float fontSize)
@@ -224,9 +266,9 @@
                 //case WinFormStrConstants.NodeNames.NodeCssMinify:
                 //    this.BindUserControl(this.UsrCtrlCssMinify);
                 //    break;
-                //case WinFormStrConstants.NodeNames.NodeClipboard:
-                //    this.BindUserControl(this.UsrCtrlClipboard);
-                //    break;
+                case WinFormStrConstants.NodeNames.NodeSharePointList:
+                    this.BindUserControl(this.UsrCtrlSPList);
+                    break;
                 case WinFormStrConstants.NodeNames.NodeIISProcesses:
                     this.BindUserControl(_usrCtrlIisMgr);
                     break;
@@ -342,9 +384,37 @@
             }
         }
 
+        public List<CoreUsrCtrl> UserControls
+        {
+            get 
+            {
+                if (_usrControls == null)
+                {
+                    _usrControls = new List<CoreUsrCtrl>();
+                }
+                return _usrControls;
+            }
+            set 
+            { 
+                _usrControls = value; 
+            }
+        }
+
         #endregion
 
         #region "Accessors"
+
+        public SPListUsrCtrl UsrCtrlSPList
+        {
+            get
+            {
+                return _usrCtrlSPList;
+            }
+            set
+            {
+                _usrCtrlSPList = value;
+            }
+        }
 
         public IisMgrUsrCtrl UsrCtrlIisMgr
         {

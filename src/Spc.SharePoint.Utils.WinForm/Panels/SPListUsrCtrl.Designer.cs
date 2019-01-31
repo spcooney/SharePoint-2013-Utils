@@ -1,6 +1,6 @@
 ﻿namespace Spc.SharePoint.Utils.WinForm.Panels
 {
-    partial class WinSvcsUsrCtrl
+    partial class SPListUsrCtrl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Splitter = new System.Windows.Forms.SplitContainer();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.GridProcesses = new System.Windows.Forms.DataGridView();
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
-            this.GridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SplitterTextBox = new System.Windows.Forms.SplitContainer();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
             this.Splitter.Panel1.SuspendLayout();
             this.Splitter.Panel2.SuspendLayout();
@@ -46,7 +43,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridProcesses)).BeginInit();
             this.TblHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).BeginInit();
-            this.GridContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).BeginInit();
+            this.SplitterTextBox.Panel1.SuspendLayout();
+            this.SplitterTextBox.Panel2.SuspendLayout();
+            this.SplitterTextBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // Splitter
@@ -54,7 +54,7 @@
             this.Splitter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Splitter.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.Splitter.IsSplitterFixed = true;
-            this.Splitter.Location = new System.Drawing.Point(0, 25);
+            this.Splitter.Location = new System.Drawing.Point(0, 0);
             this.Splitter.Name = "Splitter";
             this.Splitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -66,7 +66,7 @@
             // 
             this.Splitter.Panel2.Controls.Add(this.GridProcesses);
             this.Splitter.Panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.Splitter.Size = new System.Drawing.Size(992, 581);
+            this.Splitter.Size = new System.Drawing.Size(678, 555);
             this.Splitter.SplitterDistance = 28;
             this.Splitter.SplitterWidth = 1;
             this.Splitter.TabIndex = 1;
@@ -82,10 +82,9 @@
             this.BtnRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(104, 23);
-            this.BtnRefresh.TabIndex = 0;
+            this.BtnRefresh.TabIndex = 1;
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = false;
-            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // GridProcesses
             // 
@@ -98,7 +97,7 @@
             this.GridProcesses.Location = new System.Drawing.Point(3, 3);
             this.GridProcesses.Name = "GridProcesses";
             this.GridProcesses.ReadOnly = true;
-            this.GridProcesses.Size = new System.Drawing.Size(986, 546);
+            this.GridProcesses.Size = new System.Drawing.Size(672, 520);
             this.GridProcesses.TabIndex = 1;
             // 
             // TblHeader
@@ -113,12 +112,12 @@
             this.TblHeader.Name = "TblHeader";
             this.TblHeader.RowCount = 1;
             this.TblHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.TblHeader.Size = new System.Drawing.Size(992, 25);
+            this.TblHeader.Size = new System.Drawing.Size(678, 25);
             this.TblHeader.TabIndex = 4;
             // 
             // PicBoxTitle
             // 
-            this.PicBoxTitle.BackgroundImage = global::Spc.SharePoint.Utils.WinForm.Properties.Resources.Services16x16;
+            this.PicBoxTitle.BackgroundImage = global::Spc.SharePoint.Utils.WinForm.Properties.Resources.SharePoint16x16;
             this.PicBoxTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PicBoxTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicBoxTitle.Location = new System.Drawing.Point(0, 0);
@@ -136,52 +135,52 @@
             this.LblHeader.Location = new System.Drawing.Point(30, 0);
             this.LblHeader.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.LblHeader.Name = "LblHeader";
-            this.LblHeader.Size = new System.Drawing.Size(959, 25);
+            this.LblHeader.Size = new System.Drawing.Size(645, 25);
             this.LblHeader.TabIndex = 1;
-            this.LblHeader.Text = "Windows Services";
+            this.LblHeader.Text = "SharePoint List";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // GridContextMenu
+            // SplitterTextBox
             // 
-            this.GridContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stopToolStripMenuItem,
-            this.startToolStripMenuItem,
-            this.restartToolStripMenuItem});
-            this.GridContextMenu.Name = "GridContextMenu";
-            this.GridContextMenu.Size = new System.Drawing.Size(111, 70);
+            this.SplitterTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitterTextBox.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.SplitterTextBox.IsSplitterFixed = true;
+            this.SplitterTextBox.Location = new System.Drawing.Point(0, 25);
+            this.SplitterTextBox.Name = "SplitterTextBox";
+            this.SplitterTextBox.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // stopToolStripMenuItem
+            // SplitterTextBox.Panel1
             // 
-            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.stopToolStripMenuItem.Text = "Stop";
-            this.stopToolStripMenuItem.Click += new System.EventHandler(this.Stop_Click);
+            this.SplitterTextBox.Panel1.Controls.Add(this.textBox1);
+            this.SplitterTextBox.Panel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             // 
-            // startToolStripMenuItem
+            // SplitterTextBox.Panel2
             // 
-            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.startToolStripMenuItem.Text = "Start";
-            this.startToolStripMenuItem.Click += new System.EventHandler(this.Start_Click);
+            this.SplitterTextBox.Panel2.Controls.Add(this.Splitter);
+            this.SplitterTextBox.Size = new System.Drawing.Size(678, 584);
+            this.SplitterTextBox.SplitterDistance = 25;
+            this.SplitterTextBox.TabIndex = 5;
             // 
-            // restartToolStripMenuItem
+            // textBox1
             // 
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.restartToolStripMenuItem.Text = "Restart";
-            this.restartToolStripMenuItem.Click += new System.EventHandler(this.Restart_Click);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 0);
+            this.textBox1.MinimumSize = new System.Drawing.Size(4, 25);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(672, 25);
+            this.textBox1.TabIndex = 0;
             // 
-            // WinSvcsUsrCtrl
+            // SPListUsrCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.Splitter);
+            this.Controls.Add(this.SplitterTextBox);
             this.Controls.Add(this.TblHeader);
-            this.Name = "WinSvcsUsrCtrl";
-            this.Size = new System.Drawing.Size(992, 606);
-            this.Load += new System.EventHandler(this.IISMgrUsrCtrl_Load);
+            this.Name = "SPListUsrCtrl";
+            this.Size = new System.Drawing.Size(678, 609);
             this.Splitter.Panel1.ResumeLayout(false);
             this.Splitter.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).EndInit();
@@ -190,7 +189,11 @@
             this.TblHeader.ResumeLayout(false);
             this.TblHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).EndInit();
-            this.GridContextMenu.ResumeLayout(false);
+            this.SplitterTextBox.Panel1.ResumeLayout(false);
+            this.SplitterTextBox.Panel1.PerformLayout();
+            this.SplitterTextBox.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).EndInit();
+            this.SplitterTextBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -198,14 +201,12 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer Splitter;
-        private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.TableLayoutPanel TblHeader;
         private System.Windows.Forms.PictureBox PicBoxTitle;
         private System.Windows.Forms.Label LblHeader;
         private System.Windows.Forms.DataGridView GridProcesses;
-        private System.Windows.Forms.ContextMenuStrip GridContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer SplitterTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }
