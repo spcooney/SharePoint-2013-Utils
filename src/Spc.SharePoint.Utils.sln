@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keys", "Keys", "{DE683B00-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Assemblies", "External Assemblies", "{85818888-FBAC-4A0C-985C-3630CB272719}"
 	ProjectSection(SolutionItems) = preProject
+		Solution\External Assemblies\AdvancedDataGridView.dll = Solution\External Assemblies\AdvancedDataGridView.dll
 		Solution\External Assemblies\Ionic.Zlib.dll = Solution\External Assemblies\Ionic.Zlib.dll
 		Solution\External Assemblies\log4net.dll = Solution\External Assemblies\log4net.dll
 		Solution\External Assemblies\Microsoft.SharePoint.dll = Solution\External Assemblies\Microsoft.SharePoint.dll

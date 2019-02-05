@@ -122,7 +122,7 @@
             XmlWriterSettings xws = new XmlWriterSettings();
             xws.OmitXmlDeclaration = true;
             xws.Indent = true;
-            xws.IndentChars = "\t";
+            xws.IndentChars = CharUtil.TabStr;
             xws.NewLineOnAttributes = true;
             using (XmlWriter xmlWr = XmlWriter.Create(sb, xws))
             {

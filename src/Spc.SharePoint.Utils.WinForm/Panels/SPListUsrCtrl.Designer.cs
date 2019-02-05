@@ -37,7 +37,7 @@
             this.TabSchema = new System.Windows.Forms.TabPage();
             this.RchTxtSchema = new System.Windows.Forms.RichTextBox();
             this.TabData = new System.Windows.Forms.TabPage();
-            this.GridData = new System.Windows.Forms.DataGridView();
+            this.GridData = new Zuby.ADGV.AdvancedDataGridView();
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
@@ -287,6 +287,6 @@
         private System.Windows.Forms.TabPage TabSchema;
         private System.Windows.Forms.TabPage TabData;
         private System.Windows.Forms.RichTextBox RchTxtSchema;
-        private System.Windows.Forms.DataGridView GridData;
+        private Zuby.ADGV.AdvancedDataGridView GridData;
     }
 }

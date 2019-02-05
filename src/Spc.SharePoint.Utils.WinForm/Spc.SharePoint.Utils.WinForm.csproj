@@ -43,6 +43,9 @@
     <AssemblyOriginatorKeyFile>SPC.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView">
+      <HintPath>..\Solution\External Assemblies\AdvancedDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\Solution\External Assemblies\log4net.dll</HintPath>
     </Reference>
@@ -83,9 +86,7 @@
     <Compile Include="Panels\IisMgrUsrCtrl.designer.cs">
       <DependentUpon>IisMgrUsrCtrl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\SPListUsrCtrl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Panels\SPListUsrCtrl.cs" />
     <Compile Include="Panels\SPListUsrCtrl.Designer.cs">
       <DependentUpon>SPListUsrCtrl.cs</DependentUpon>
     </Compile>
