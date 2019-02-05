@@ -63,8 +63,8 @@
             // SpltCnt.Panel2
             // 
             this.SpltCnt.Panel2.Controls.Add(this.PnlMain);
-            this.SpltCnt.Size = new System.Drawing.Size(888, 440);
-            this.SpltCnt.SplitterDistance = 150;
+            this.SpltCnt.Size = new System.Drawing.Size(1146, 607);
+            this.SpltCnt.SplitterDistance = 193;
             this.SpltCnt.SplitterWidth = 6;
             this.SpltCnt.TabIndex = 0;
             this.SpltCnt.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SpltCnt_SplitterMoved);
@@ -84,7 +84,7 @@
             this.TreeNav.ShowLines = false;
             this.TreeNav.ShowPlusMinus = false;
             this.TreeNav.ShowRootLines = false;
-            this.TreeNav.Size = new System.Drawing.Size(150, 440);
+            this.TreeNav.Size = new System.Drawing.Size(193, 607);
             this.TreeNav.TabIndex = 0;
             this.TreeNav.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.TreeNav_AfterExpand);
             // 
@@ -111,15 +111,15 @@
             this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMain.Location = new System.Drawing.Point(0, 0);
             this.PnlMain.Name = "PnlMain";
-            this.PnlMain.Size = new System.Drawing.Size(732, 440);
+            this.PnlMain.Size = new System.Drawing.Size(947, 607);
             this.PnlMain.TabIndex = 0;
             // 
             // StsBar
             // 
             this.StsBar.BackColor = System.Drawing.Color.White;
-            this.StsBar.Location = new System.Drawing.Point(0, 464);
+            this.StsBar.Location = new System.Drawing.Point(0, 631);
             this.StsBar.Name = "StsBar";
-            this.StsBar.Size = new System.Drawing.Size(888, 22);
+            this.StsBar.Size = new System.Drawing.Size(1146, 22);
             this.StsBar.TabIndex = 1;
             this.StsBar.Text = "statusStrip1";
             // 
@@ -129,7 +129,7 @@
             this.toolsToolStripMenuItem});
             this.MenuStr.Location = new System.Drawing.Point(0, 0);
             this.MenuStr.Name = "MenuStr";
-            this.MenuStr.Size = new System.Drawing.Size(888, 24);
+            this.MenuStr.Size = new System.Drawing.Size(1146, 24);
             this.MenuStr.TabIndex = 0;
             this.MenuStr.Text = "menuStrip1";
             // 
@@ -193,7 +193,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(888, 486);
+            this.ClientSize = new System.Drawing.Size(1146, 653);
             this.Controls.Add(this.SpltCnt);
             this.Controls.Add(this.StsBar);
             this.Controls.Add(this.MenuStr);

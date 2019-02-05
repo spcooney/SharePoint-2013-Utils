@@ -67,6 +67,19 @@
             return list;
         }
 
+        public static SPList TryGetListByRelativeUrl(SPWeb web, string listUrl)
+        {
+            SPList list = null;
+            try
+            {
+                list = web.GetList(listUrl);
+            }
+            catch
+            {
+            }
+            return list;
+        }
+
         public static SPList TryGetListByUrl(SPWeb web, string listUrlName, SPBaseType baseType)
         {
             string WebRelativeUrl = web.ServerRelativeUrl;

@@ -48,6 +48,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,8 +59,10 @@
     <Compile Include="Helper\CharUtil.cs" />
     <Compile Include="Helper\Log4NetHelper.cs" />
     <Compile Include="Helper\NullUtil.cs" />
+    <Compile Include="Helper\SharePointUtil.cs" />
     <Compile Include="Helper\SPListHelper.cs" />
     <Compile Include="Helper\StringUtil.cs" />
+    <Compile Include="Helper\UriUtil.cs" />
     <Compile Include="Helper\WinSvcUtil.cs" />
     <Compile Include="Models\IisAppPool.cs" />
     <Compile Include="Models\WinSvc.cs" />

@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.SplitterTextBox = new System.Windows.Forms.SplitContainer();
+            this.TxtSPListUrl = new System.Windows.Forms.TextBox();
             this.Splitter = new System.Windows.Forms.SplitContainer();
+            this.BtnQuery = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.GridProcesses = new System.Windows.Forms.DataGridView();
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
-            this.SplitterTextBox = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).BeginInit();
+            this.SplitterTextBox.Panel1.SuspendLayout();
+            this.SplitterTextBox.Panel2.SuspendLayout();
+            this.SplitterTextBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
             this.Splitter.Panel1.SuspendLayout();
             this.Splitter.Panel2.SuspendLayout();
@@ -43,11 +48,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridProcesses)).BeginInit();
             this.TblHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).BeginInit();
-            this.SplitterTextBox.Panel1.SuspendLayout();
-            this.SplitterTextBox.Panel2.SuspendLayout();
-            this.SplitterTextBox.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // SplitterTextBox
+            // 
+            this.SplitterTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitterTextBox.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.SplitterTextBox.IsSplitterFixed = true;
+            this.SplitterTextBox.Location = new System.Drawing.Point(0, 25);
+            this.SplitterTextBox.Name = "SplitterTextBox";
+            this.SplitterTextBox.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitterTextBox.Panel1
+            // 
+            this.SplitterTextBox.Panel1.Controls.Add(this.TxtSPListUrl);
+            this.SplitterTextBox.Panel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.SplitterTextBox.Panel1MinSize = 24;
+            // 
+            // SplitterTextBox.Panel2
+            // 
+            this.SplitterTextBox.Panel2.Controls.Add(this.Splitter);
+            this.SplitterTextBox.Panel2MinSize = 24;
+            this.SplitterTextBox.Size = new System.Drawing.Size(678, 584);
+            this.SplitterTextBox.SplitterDistance = 25;
+            this.SplitterTextBox.TabIndex = 5;
+            // 
+            // TxtSPListUrl
+            // 
+            this.TxtSPListUrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtSPListUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSPListUrl.Location = new System.Drawing.Point(3, 0);
+            this.TxtSPListUrl.MinimumSize = new System.Drawing.Size(4, 24);
+            this.TxtSPListUrl.Name = "TxtSPListUrl";
+            this.TxtSPListUrl.Size = new System.Drawing.Size(672, 24);
+            this.TxtSPListUrl.TabIndex = 0;
+            this.TxtSPListUrl.Enter += new System.EventHandler(this.TxtSPListUrl_Enter);
+            this.TxtSPListUrl.Leave += new System.EventHandler(this.TxtSPListUrl_Leave);
             // 
             // Splitter
             // 
@@ -60,6 +96,7 @@
             // 
             // Splitter.Panel1
             // 
+            this.Splitter.Panel1.Controls.Add(this.BtnQuery);
             this.Splitter.Panel1.Controls.Add(this.BtnRefresh);
             // 
             // Splitter.Panel2
@@ -71,6 +108,22 @@
             this.Splitter.SplitterWidth = 1;
             this.Splitter.TabIndex = 1;
             // 
+            // BtnQuery
+            // 
+            this.BtnQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.BtnQuery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
+            this.BtnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnQuery.ForeColor = System.Drawing.Color.Black;
+            this.BtnQuery.Location = new System.Drawing.Point(4, 3);
+            this.BtnQuery.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnQuery.Name = "BtnQuery";
+            this.BtnQuery.Size = new System.Drawing.Size(104, 23);
+            this.BtnQuery.TabIndex = 2;
+            this.BtnQuery.Text = "Query";
+            this.BtnQuery.UseVisualStyleBackColor = false;
+            this.BtnQuery.Click += new System.EventHandler(this.BtnQuery_Click);
+            // 
             // BtnRefresh
             // 
             this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
@@ -78,7 +131,7 @@
             this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
             this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.BtnRefresh.Location = new System.Drawing.Point(3, 3);
+            this.BtnRefresh.Location = new System.Drawing.Point(113, 3);
             this.BtnRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(104, 23);
@@ -140,37 +193,6 @@
             this.LblHeader.Text = "SharePoint List";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // SplitterTextBox
-            // 
-            this.SplitterTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitterTextBox.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.SplitterTextBox.IsSplitterFixed = true;
-            this.SplitterTextBox.Location = new System.Drawing.Point(0, 25);
-            this.SplitterTextBox.Name = "SplitterTextBox";
-            this.SplitterTextBox.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitterTextBox.Panel1
-            // 
-            this.SplitterTextBox.Panel1.Controls.Add(this.textBox1);
-            this.SplitterTextBox.Panel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            // 
-            // SplitterTextBox.Panel2
-            // 
-            this.SplitterTextBox.Panel2.Controls.Add(this.Splitter);
-            this.SplitterTextBox.Size = new System.Drawing.Size(678, 584);
-            this.SplitterTextBox.SplitterDistance = 25;
-            this.SplitterTextBox.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 0);
-            this.textBox1.MinimumSize = new System.Drawing.Size(4, 25);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(672, 25);
-            this.textBox1.TabIndex = 0;
-            // 
             // SPListUsrCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +203,11 @@
             this.Controls.Add(this.TblHeader);
             this.Name = "SPListUsrCtrl";
             this.Size = new System.Drawing.Size(678, 609);
+            this.SplitterTextBox.Panel1.ResumeLayout(false);
+            this.SplitterTextBox.Panel1.PerformLayout();
+            this.SplitterTextBox.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).EndInit();
+            this.SplitterTextBox.ResumeLayout(false);
             this.Splitter.Panel1.ResumeLayout(false);
             this.Splitter.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).EndInit();
@@ -189,11 +216,6 @@
             this.TblHeader.ResumeLayout(false);
             this.TblHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).EndInit();
-            this.SplitterTextBox.Panel1.ResumeLayout(false);
-            this.SplitterTextBox.Panel1.PerformLayout();
-            this.SplitterTextBox.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).EndInit();
-            this.SplitterTextBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,7 +228,8 @@
         private System.Windows.Forms.Label LblHeader;
         private System.Windows.Forms.DataGridView GridProcesses;
         private System.Windows.Forms.SplitContainer SplitterTextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtSPListUrl;
         private System.Windows.Forms.Button BtnRefresh;
+        private System.Windows.Forms.Button BtnQuery;
     }
 }
