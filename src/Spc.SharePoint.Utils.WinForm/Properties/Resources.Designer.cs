@@ -91,6 +91,15 @@ namespace Spc.SharePoint.Utils.WinForm.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter your SharePoint list absolute URL....
+        /// </summary>
+        internal static string EnterSPUrl {
+            get {
+                return ResourceManager.GetString("EnterSPUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon FormIcon {

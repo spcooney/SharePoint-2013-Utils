@@ -127,6 +127,9 @@
   <data name="DarkBlueBullet16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DarkBlueBullet16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EnterSPUrl" xml:space="preserve">
+    <value>Please enter your SharePoint list absolute URL...</value>
+  </data>
   <data name="FormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FormIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

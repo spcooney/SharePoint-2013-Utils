@@ -79,5 +79,17 @@ namespace Spc.SharePoint.Utils.WinForm.Properties {
                 return ((string)(this["WinServiceNames"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastSPListUrl {
+            get {
+                return ((string)(this["LastSPListUrl"]));
+            }
+            set {
+                this["LastSPListUrl"] = value;
+            }
+        }
     }
 }

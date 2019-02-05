@@ -22,7 +22,15 @@
 
         #region "Methods"
 
-
+        public static bool Save()
+        {
+            if (Instance != null)
+            {
+                Instance.Save();
+                return true;
+            }
+            return false;
+        }
 
         #endregion
 

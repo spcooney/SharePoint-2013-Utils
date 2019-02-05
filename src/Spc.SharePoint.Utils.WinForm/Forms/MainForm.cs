@@ -81,21 +81,6 @@
 
             #endregion
 
-            #region "IIS"
-
-            TreeNode tnIIS = new TreeNode();
-            tnIIS.Name = WinFormStrConstants.NodeNames.NodeIIS;
-            tnIIS.Text = WinFormStrConstants.NodeText.NodeIIS;
-            tnIIS.ImageIndex = 5;
-            tnIIS.SelectedImageIndex = 5;
-            TreeNode tnIISProcesses = new TreeNode();
-            tnIISProcesses.Name = WinFormStrConstants.NodeNames.NodeIISProcesses;
-            tnIISProcesses.Text = WinFormStrConstants.NodeText.NodeIISProcesses;
-            tnIISProcesses.ImageIndex = 8;
-            tnIISProcesses.SelectedImageIndex = 11;
-
-            #endregion
-
             #region "Windows"
 
             TreeNode tnWin = new TreeNode();
@@ -103,6 +88,11 @@
             tnWin.Text = WinFormStrConstants.NodeText.NodeWindows;
             tnWin.ImageIndex = 9;
             tnWin.SelectedImageIndex = 9;
+            TreeNode tnIISProcesses = new TreeNode();
+            tnIISProcesses.Name = WinFormStrConstants.NodeNames.NodeIISProcesses;
+            tnIISProcesses.Text = WinFormStrConstants.NodeText.NodeIISProcesses;
+            tnIISProcesses.ImageIndex = 8;
+            tnIISProcesses.SelectedImageIndex = 11;
             TreeNode tnWinSvcs = new TreeNode();
             tnWinSvcs.Name = WinFormStrConstants.NodeNames.NodeWinServices;
             tnWinSvcs.Text = WinFormStrConstants.NodeText.NodeWinServices;
@@ -114,11 +104,10 @@
             // Build the tree
             // Build level 2 nodes
             tnSharePoint.Nodes.Add(tnSPList);
-            tnIIS.Nodes.Add(tnIISProcesses);
+            tnWin.Nodes.Add(tnIISProcesses);
             tnWin.Nodes.Add(tnWinSvcs);
             // Build level 1 nodes
             tnDevTools.Nodes.Add(tnSharePoint);
-            tnDevTools.Nodes.Add(tnIIS);
             tnDevTools.Nodes.Add(tnWin);
             // Add root to the tree
             TreeNav.Nodes.Add(tnDevTools);

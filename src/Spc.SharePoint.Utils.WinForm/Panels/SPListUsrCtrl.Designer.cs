@@ -33,7 +33,11 @@
             this.Splitter = new System.Windows.Forms.SplitContainer();
             this.BtnQuery = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
-            this.GridProcesses = new System.Windows.Forms.DataGridView();
+            this.ListTabs = new System.Windows.Forms.TabControl();
+            this.TabSchema = new System.Windows.Forms.TabPage();
+            this.RchTxtSchema = new System.Windows.Forms.RichTextBox();
+            this.TabData = new System.Windows.Forms.TabPage();
+            this.GridData = new System.Windows.Forms.DataGridView();
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
@@ -45,7 +49,10 @@
             this.Splitter.Panel1.SuspendLayout();
             this.Splitter.Panel2.SuspendLayout();
             this.Splitter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridProcesses)).BeginInit();
+            this.ListTabs.SuspendLayout();
+            this.TabSchema.SuspendLayout();
+            this.TabData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
             this.TblHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).BeginInit();
             this.SuspendLayout();
@@ -80,8 +87,9 @@
             this.TxtSPListUrl.Location = new System.Drawing.Point(3, 0);
             this.TxtSPListUrl.MinimumSize = new System.Drawing.Size(4, 24);
             this.TxtSPListUrl.Name = "TxtSPListUrl";
-            this.TxtSPListUrl.Size = new System.Drawing.Size(672, 24);
+            this.TxtSPListUrl.Size = new System.Drawing.Size(672, 22);
             this.TxtSPListUrl.TabIndex = 0;
+            this.TxtSPListUrl.TextChanged += new System.EventHandler(this.TxtSPListUrl_TextChanged);
             this.TxtSPListUrl.Enter += new System.EventHandler(this.TxtSPListUrl_Enter);
             this.TxtSPListUrl.Leave += new System.EventHandler(this.TxtSPListUrl_Leave);
             // 
@@ -101,7 +109,7 @@
             // 
             // Splitter.Panel2
             // 
-            this.Splitter.Panel2.Controls.Add(this.GridProcesses);
+            this.Splitter.Panel2.Controls.Add(this.ListTabs);
             this.Splitter.Panel2.Padding = new System.Windows.Forms.Padding(3);
             this.Splitter.Size = new System.Drawing.Size(678, 555);
             this.Splitter.SplitterDistance = 28;
@@ -139,19 +147,61 @@
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = false;
             // 
-            // GridProcesses
+            // ListTabs
             // 
-            this.GridProcesses.AllowUserToAddRows = false;
-            this.GridProcesses.AllowUserToDeleteRows = false;
-            this.GridProcesses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.GridProcesses.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.GridProcesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridProcesses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridProcesses.Location = new System.Drawing.Point(3, 3);
-            this.GridProcesses.Name = "GridProcesses";
-            this.GridProcesses.ReadOnly = true;
-            this.GridProcesses.Size = new System.Drawing.Size(672, 520);
-            this.GridProcesses.TabIndex = 1;
+            this.ListTabs.Controls.Add(this.TabSchema);
+            this.ListTabs.Controls.Add(this.TabData);
+            this.ListTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListTabs.Location = new System.Drawing.Point(3, 3);
+            this.ListTabs.Name = "ListTabs";
+            this.ListTabs.SelectedIndex = 0;
+            this.ListTabs.Size = new System.Drawing.Size(672, 520);
+            this.ListTabs.TabIndex = 2;
+            // 
+            // TabSchema
+            // 
+            this.TabSchema.Controls.Add(this.RchTxtSchema);
+            this.TabSchema.Location = new System.Drawing.Point(4, 22);
+            this.TabSchema.Name = "TabSchema";
+            this.TabSchema.Padding = new System.Windows.Forms.Padding(3);
+            this.TabSchema.Size = new System.Drawing.Size(664, 494);
+            this.TabSchema.TabIndex = 0;
+            this.TabSchema.Text = "Schema";
+            this.TabSchema.UseVisualStyleBackColor = true;
+            // 
+            // RchTxtSchema
+            // 
+            this.RchTxtSchema.BackColor = System.Drawing.SystemColors.Control;
+            this.RchTxtSchema.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RchTxtSchema.Location = new System.Drawing.Point(3, 3);
+            this.RchTxtSchema.Name = "RchTxtSchema";
+            this.RchTxtSchema.Size = new System.Drawing.Size(658, 488);
+            this.RchTxtSchema.TabIndex = 0;
+            this.RchTxtSchema.Text = "";
+            // 
+            // TabData
+            // 
+            this.TabData.Controls.Add(this.GridData);
+            this.TabData.Location = new System.Drawing.Point(4, 22);
+            this.TabData.Name = "TabData";
+            this.TabData.Padding = new System.Windows.Forms.Padding(3);
+            this.TabData.Size = new System.Drawing.Size(664, 494);
+            this.TabData.TabIndex = 1;
+            this.TabData.Text = "Data";
+            this.TabData.UseVisualStyleBackColor = true;
+            // 
+            // GridData
+            // 
+            this.GridData.AllowUserToAddRows = false;
+            this.GridData.AllowUserToDeleteRows = false;
+            this.GridData.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.GridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridData.Location = new System.Drawing.Point(3, 3);
+            this.GridData.Name = "GridData";
+            this.GridData.ReadOnly = true;
+            this.GridData.Size = new System.Drawing.Size(658, 488);
+            this.GridData.TabIndex = 2;
             // 
             // TblHeader
             // 
@@ -212,7 +262,10 @@
             this.Splitter.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).EndInit();
             this.Splitter.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridProcesses)).EndInit();
+            this.ListTabs.ResumeLayout(false);
+            this.TabSchema.ResumeLayout(false);
+            this.TabData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridData)).EndInit();
             this.TblHeader.ResumeLayout(false);
             this.TblHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).EndInit();
@@ -226,10 +279,14 @@
         private System.Windows.Forms.TableLayoutPanel TblHeader;
         private System.Windows.Forms.PictureBox PicBoxTitle;
         private System.Windows.Forms.Label LblHeader;
-        private System.Windows.Forms.DataGridView GridProcesses;
         private System.Windows.Forms.SplitContainer SplitterTextBox;
         private System.Windows.Forms.TextBox TxtSPListUrl;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Button BtnQuery;
+        private System.Windows.Forms.TabControl ListTabs;
+        private System.Windows.Forms.TabPage TabSchema;
+        private System.Windows.Forms.TabPage TabData;
+        private System.Windows.Forms.RichTextBox RchTxtSchema;
+        private System.Windows.Forms.DataGridView GridData;
     }
 }

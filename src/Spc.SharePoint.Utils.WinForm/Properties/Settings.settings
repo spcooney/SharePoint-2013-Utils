@@ -17,5 +17,8 @@
     <Setting Name="WinServiceNames" Type="System.String" Scope="Application">
       <Value Profile="(Default)">W3SVC;MSSQLSERVER;SPTimerV4;SPSearchHostController;IISADMIN;</Value>
     </Setting>
+    <Setting Name="LastSPListUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
