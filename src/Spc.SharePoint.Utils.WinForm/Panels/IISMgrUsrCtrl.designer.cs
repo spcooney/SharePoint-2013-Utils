@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.Splitter = new System.Windows.Forms.SplitContainer();
             this.BtnRefresh = new System.Windows.Forms.Button();
-            this.GridProcesses = new System.Windows.Forms.DataGridView();
+            this.GridProcesses = new Zuby.ADGV.AdvancedDataGridView();
             this.GridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
@@ -182,7 +182,7 @@
         private System.Windows.Forms.TableLayoutPanel TblHeader;
         private System.Windows.Forms.PictureBox PicBoxTitle;
         private System.Windows.Forms.Label LblHeader;
-        private System.Windows.Forms.DataGridView GridProcesses;
+        private Zuby.ADGV.AdvancedDataGridView GridProcesses;
         private System.Windows.Forms.ContextMenuStrip GridContextMenu;
         private System.Windows.Forms.ToolStripMenuItem recycleToolStripMenuItem;
     }
