@@ -7,9 +7,10 @@
     using System.ComponentModel;
     using System.Linq;
     using System.Windows.Forms;
+    using Zuby.ADGV;
     using SWF = System.Windows.Forms;
 
-    public partial class IisMgrUsrCtrl : CoreUsrCtrl
+    public partial class IisMgrUsrCtrl : UserControl
     {
         #region "Properties"
 
@@ -28,6 +29,8 @@
             GridTimer.Tick += new EventHandler(GridTimer_Tick);
             GridTimer.Start();
             GridProcesses.FontChanged += new EventHandler(GridProcesses_FontChanged);
+            GridProcesses.SortStringChanged += GridProcesses_SortStringChanged;
+            GridProcesses.FilterStringChanged += GridProcesses_FilterStringChanged;
         }
 
         #endregion
@@ -62,6 +65,20 @@
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             BindAppPools();
+        }
+
+        protected void GridProcesses_FilterStringChanged(object sender, AdvancedDataGridView.FilterEventArgs e)
+        {
+            GridProcesses.LoadFilterAndSort(e.FilterString, String.Empty);
+        }
+
+        protected void GridProcesses_SortStringChanged(object sender, AdvancedDataGridView.SortEventArgs e)
+        {
+            BindingSource dataSource = GridProcesses.DataSource as BindingSource;
+            if (dataSource != null)
+            {
+                dataSource.Sort = e.SortString;
+            }
         }
 
         protected void GridTimer_Tick(object sender, EventArgs e)

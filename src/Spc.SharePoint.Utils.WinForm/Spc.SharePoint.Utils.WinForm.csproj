@@ -25,13 +25,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -43,9 +44,6 @@
     <AssemblyOriginatorKeyFile>SPC.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdvancedDataGridView">
-      <HintPath>..\Solution\External Assemblies\AdvancedDataGridView.dll</HintPath>
-    </Reference>
     <Reference Include="log4net">
       <HintPath>..\Solution\External Assemblies\log4net.dll</HintPath>
     </Reference>
@@ -80,13 +78,18 @@
     <Compile Include="Panels\CoreUsrCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\CoreUsrCtrl.designer.cs">
+      <DependentUpon>CoreUsrCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\IisMgrUsrCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\IisMgrUsrCtrl.designer.cs">
       <DependentUpon>IisMgrUsrCtrl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\SPListUsrCtrl.cs" />
+    <Compile Include="Panels\SPListUsrCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\SPListUsrCtrl.Designer.cs">
       <DependentUpon>SPListUsrCtrl.cs</DependentUpon>
     </Compile>
@@ -106,6 +109,9 @@
     <Compile Include="WinFormStrConstants.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\CoreUsrCtrl.resx">
+      <DependentUpon>CoreUsrCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\IisMgrUsrCtrl.resx">
       <DependentUpon>IisMgrUsrCtrl.cs</DependentUpon>
@@ -158,6 +164,10 @@
     <Content Include="Resources\Web16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdvancedDataGridView\AdvancedDataGridView.csproj">
+      <Project>{6eba0a55-b390-4479-a564-58d46094998d}</Project>
+      <Name>AdvancedDataGridView</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spc.SharePoint.Utils.Core\Spc.SharePoint.Utils.Core.csproj">
       <Project>{c8b957ed-01f8-49d0-a6dc-b4c62dcb5b02}</Project>
       <Name>Spc.SharePoint.Utils.Core</Name>

@@ -18,7 +18,7 @@
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(MainForm));
         private List<Control> _ctrlFocusHistory;
-        private List<CoreUsrCtrl> _usrControls;
+        private List<UserControl> _usrControls;
         private SPListUsrCtrl _usrCtrlSPList;
         private IisMgrUsrCtrl _usrCtrlIisMgr;
         private WinSvcsUsrCtrl _usrCtrlWinSvcs;
@@ -378,13 +378,13 @@
             }
         }
 
-        public List<CoreUsrCtrl> UserControls
+        public List<UserControl> UserControls
         {
             get 
             {
                 if (_usrControls == null)
                 {
-                    _usrControls = new List<CoreUsrCtrl>();
+                    _usrControls = new List<UserControl>();
                 }
                 return _usrControls;
             }

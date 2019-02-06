@@ -9,7 +9,7 @@
     using System.Windows.Forms;
     using SWF = System.Windows.Forms;
 
-    public partial class WinSvcsUsrCtrl : CoreUsrCtrl
+    public partial class WinSvcsUsrCtrl : UserControl
     {
         #region "Properties"
 

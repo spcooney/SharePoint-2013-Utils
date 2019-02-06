@@ -8,14 +8,17 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
+    using System.Reflection;
     using System.ServiceProcess;
     using System.Text;
     using System.Windows.Forms;
     using System.Xml;
     using System.Xml.Linq;
+    using Zuby.ADGV;
     using SWF = System.Windows.Forms;
 
-    public partial class SPListUsrCtrl : CoreUsrCtrl
+    public partial class SPListUsrCtrl : UserControl
     {
         #region "Properties"
 
@@ -29,14 +32,7 @@
         public SPListUsrCtrl()
         {
             InitializeComponent();
-            if (String.IsNullOrEmpty(AppSettings.Instance.LastSPListUrl))
-            {
-                SetPlaceholderText();
-            }
-            else
-            {
-                TxtSPListUrl.Text = AppSettings.Instance.LastSPListUrl;
-            }
+            SetPlaceholderText();
         }
 
         #endregion
@@ -45,12 +41,33 @@
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-
+            QueryList();
         }
 
         private void BtnQuery_Click(object sender, EventArgs e)
         {
             QueryList();
+        }
+
+        private void BtnQueryProp_Click(object sender, EventArgs e)
+        {
+            SPList curList = TryGetSPList();
+            if (curList == null)
+            {
+                return;
+            }
+            try
+            {
+                RchTxtProperties.Text = curList.GetType().GetProperty(DdListProperties.Text).GetValue(curList, null).ToString();                
+            }
+            catch (SPException spex)
+            {
+                RchTxtProperties.Text = spex.Message;
+            }
+            catch (Exception ex)
+            {
+                RchTxtProperties.Text = ex.Message;
+            }
         }
 
         private void TxtSPListUrl_Enter(object sender, EventArgs e)
@@ -67,10 +84,7 @@
 
         private void TxtSPListUrl_Leave(object sender, EventArgs e)
         {
-            if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
-            {
-                SetPlaceholderText();
-            }
+            SetPlaceholderText();
         }
 
         private void TxtSPListUrl_TextChanged(object sender, EventArgs e)
@@ -83,27 +97,56 @@
 
         #region "Methods"
 
+        private SPList TryGetSPList()
+        {
+            if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
+            {
+                return null;
+            }
+            try
+            {
+                using (SPSite site = new SPSite(TxtSPListUrl.Text))
+                {
+                    using (SPWeb web = site.OpenWeb())
+                    {
+                        Uri curUri = new Uri(TxtSPListUrl.Text);
+                        return SPListHelper.TryGetListByRelativeUrl(web, curUri.PathAndQuery);
+                    }
+                }
+            }
+            catch (SPException spex)
+            {
+                RchTxtSchema.Text = spex.Message;
+            }
+            catch (Exception ex)
+            {
+                RchTxtSchema.Text = ex.Message;
+            }
+            return null;
+        }
+
         private void QueryList()
         {
             if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
             {
                 return;
             }
-            using (SPSite site = new SPSite(TxtSPListUrl.Text))
+            curList = TryGetSPList();
+            if (curList == null)
             {
-                using (SPWeb web = site.OpenWeb())
-                {
-                    Uri curUri = new Uri(TxtSPListUrl.Text);
-                    curList = SPListHelper.TryGetListByRelativeUrl(web, curUri.PathAndQuery);
-                    PopulateSchema(curList.SchemaXml);
-                    PopulateListData(curList.Items.GetDataTable());
-                }
+                return;
             }
+            PopulateSchema(curList.SchemaXml);
+            PopulateListData(curList.Items.GetDataTable());
+            PopulatePropertiesDropDown(curList);
         }
 
         private void SetPlaceholderText()
         {
-            TxtSPListUrl.Text = Resources.EnterSPUrl;
+            if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
+            {
+                TxtSPListUrl.Text = Resources.EnterSPUrl;
+            }
         }
 
         private void PopulateListData(DataTable spListData)
@@ -129,6 +172,17 @@
                 elem.Save(xmlWr);
             }
             RchTxtSchema.Text = sb.ToString();
+        }
+
+        private void PopulatePropertiesDropDown(SPList list)
+        {
+            DdListProperties.Items.Clear();
+            PropertyInfo[] props = list.GetType().GetProperties();
+            List<PropertyInfo> sortedProps = props.OrderBy(p => p.Name).ToList();
+            foreach (PropertyInfo pi in sortedProps)
+            {
+                DdListProperties.Items.Add(pi.Name);
+            }
         }
 
         #endregion

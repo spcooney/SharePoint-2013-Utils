@@ -38,9 +38,14 @@
             this.RchTxtSchema = new System.Windows.Forms.RichTextBox();
             this.TabData = new System.Windows.Forms.TabPage();
             this.GridData = new Zuby.ADGV.AdvancedDataGridView();
+            this.TabProperties = new System.Windows.Forms.TabPage();
+            this.SplitContProperties = new System.Windows.Forms.SplitContainer();
+            this.DdListProperties = new System.Windows.Forms.ComboBox();
+            this.RchTxtProperties = new System.Windows.Forms.RichTextBox();
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
+            this.BtnQueryProp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).BeginInit();
             this.SplitterTextBox.Panel1.SuspendLayout();
             this.SplitterTextBox.Panel2.SuspendLayout();
@@ -53,6 +58,11 @@
             this.TabSchema.SuspendLayout();
             this.TabData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
+            this.TabProperties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContProperties)).BeginInit();
+            this.SplitContProperties.Panel1.SuspendLayout();
+            this.SplitContProperties.Panel2.SuspendLayout();
+            this.SplitContProperties.SuspendLayout();
             this.TblHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).BeginInit();
             this.SuspendLayout();
@@ -151,6 +161,7 @@
             // 
             this.ListTabs.Controls.Add(this.TabSchema);
             this.ListTabs.Controls.Add(this.TabData);
+            this.ListTabs.Controls.Add(this.TabProperties);
             this.ListTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListTabs.Location = new System.Drawing.Point(3, 3);
             this.ListTabs.Name = "ListTabs";
@@ -194,14 +205,70 @@
             // 
             this.GridData.AllowUserToAddRows = false;
             this.GridData.AllowUserToDeleteRows = false;
+            this.GridData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridData.BackgroundColor = System.Drawing.SystemColors.Control;
             this.GridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridData.FilterAndSortEnabled = true;
             this.GridData.Location = new System.Drawing.Point(3, 3);
             this.GridData.Name = "GridData";
             this.GridData.ReadOnly = true;
             this.GridData.Size = new System.Drawing.Size(658, 488);
-            this.GridData.TabIndex = 2;
+            this.GridData.TabIndex = 0;
+            // 
+            // TabProperties
+            // 
+            this.TabProperties.Controls.Add(this.SplitContProperties);
+            this.TabProperties.Location = new System.Drawing.Point(4, 22);
+            this.TabProperties.Name = "TabProperties";
+            this.TabProperties.Padding = new System.Windows.Forms.Padding(3);
+            this.TabProperties.Size = new System.Drawing.Size(664, 494);
+            this.TabProperties.TabIndex = 2;
+            this.TabProperties.Text = "Properties";
+            this.TabProperties.UseVisualStyleBackColor = true;
+            // 
+            // SplitContProperties
+            // 
+            this.SplitContProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContProperties.IsSplitterFixed = true;
+            this.SplitContProperties.Location = new System.Drawing.Point(3, 3);
+            this.SplitContProperties.Name = "SplitContProperties";
+            this.SplitContProperties.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitContProperties.Panel1
+            // 
+            this.SplitContProperties.Panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.SplitContProperties.Panel1.Controls.Add(this.BtnQueryProp);
+            this.SplitContProperties.Panel1.Controls.Add(this.DdListProperties);
+            this.SplitContProperties.Panel1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.SplitContProperties.Panel1MinSize = 18;
+            // 
+            // SplitContProperties.Panel2
+            // 
+            this.SplitContProperties.Panel2.Controls.Add(this.RchTxtProperties);
+            this.SplitContProperties.Size = new System.Drawing.Size(658, 488);
+            this.SplitContProperties.SplitterDistance = 25;
+            this.SplitContProperties.SplitterWidth = 1;
+            this.SplitContProperties.TabIndex = 0;
+            // 
+            // DdListProperties
+            // 
+            this.DdListProperties.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DdListProperties.FormattingEnabled = true;
+            this.DdListProperties.Location = new System.Drawing.Point(0, 4);
+            this.DdListProperties.Name = "DdListProperties";
+            this.DdListProperties.Size = new System.Drawing.Size(378, 21);
+            this.DdListProperties.TabIndex = 0;
+            // 
+            // RchTxtProperties
+            // 
+            this.RchTxtProperties.BackColor = System.Drawing.SystemColors.Control;
+            this.RchTxtProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RchTxtProperties.Location = new System.Drawing.Point(0, 0);
+            this.RchTxtProperties.Name = "RchTxtProperties";
+            this.RchTxtProperties.Size = new System.Drawing.Size(658, 462);
+            this.RchTxtProperties.TabIndex = 0;
+            this.RchTxtProperties.Text = "";
             // 
             // TblHeader
             // 
@@ -243,6 +310,22 @@
             this.LblHeader.Text = "SharePoint List";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BtnQueryProp
+            // 
+            this.BtnQueryProp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.BtnQueryProp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnQueryProp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
+            this.BtnQueryProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnQueryProp.ForeColor = System.Drawing.Color.Black;
+            this.BtnQueryProp.Location = new System.Drawing.Point(384, 4);
+            this.BtnQueryProp.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnQueryProp.Name = "BtnQueryProp";
+            this.BtnQueryProp.Size = new System.Drawing.Size(104, 23);
+            this.BtnQueryProp.TabIndex = 3;
+            this.BtnQueryProp.Text = "Query";
+            this.BtnQueryProp.UseVisualStyleBackColor = false;
+            this.BtnQueryProp.Click += new System.EventHandler(this.BtnQueryProp_Click);
+            // 
             // SPListUsrCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +349,11 @@
             this.TabSchema.ResumeLayout(false);
             this.TabData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).EndInit();
+            this.TabProperties.ResumeLayout(false);
+            this.SplitContProperties.Panel1.ResumeLayout(false);
+            this.SplitContProperties.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContProperties)).EndInit();
+            this.SplitContProperties.ResumeLayout(false);
             this.TblHeader.ResumeLayout(false);
             this.TblHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).EndInit();
@@ -288,5 +376,10 @@
         private System.Windows.Forms.TabPage TabData;
         private System.Windows.Forms.RichTextBox RchTxtSchema;
         private Zuby.ADGV.AdvancedDataGridView GridData;
+        private System.Windows.Forms.TabPage TabProperties;
+        private System.Windows.Forms.SplitContainer SplitContProperties;
+        private System.Windows.Forms.ComboBox DdListProperties;
+        private System.Windows.Forms.RichTextBox RchTxtProperties;
+        private System.Windows.Forms.Button BtnQueryProp;
     }
 }
