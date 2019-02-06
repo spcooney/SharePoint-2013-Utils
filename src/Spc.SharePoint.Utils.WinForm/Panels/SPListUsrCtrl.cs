@@ -3,7 +3,6 @@
     using log4net;
     using Microsoft.SharePoint;
     using Spc.SharePoint.Utils.Core.Helper;
-    using Spc.SharePoint.Utils.Core.Models;
     using Spc.SharePoint.Utils.WinForm.Forms;
     using Spc.SharePoint.Utils.WinForm.Properties;
     using System;
@@ -11,13 +10,10 @@
     using System.Data;
     using System.Linq;
     using System.Reflection;
-    using System.ServiceProcess;
     using System.Text;
     using System.Windows.Forms;
     using System.Xml;
     using System.Xml.Linq;
-    using Zuby.ADGV;
-    using SWF = System.Windows.Forms;
 
     public partial class SPListUsrCtrl : UserControl
     {
@@ -155,6 +151,10 @@
 
         private void SetPlaceholderText()
         {
+            if (StringUtil.IsNotNullOrWhitespace(AppSettings.Instance.LastSPListUrl))
+            {
+                TxtSPListUrl.Text = AppSettings.Instance.LastSPListUrl;
+            }
             if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
             {
                 TxtSPListUrl.Text = Resources.EnterSPUrl;
