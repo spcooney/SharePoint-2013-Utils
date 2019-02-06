@@ -75,6 +75,12 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PleaseWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PleaseWaitForm.Designer.cs">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\CoreUsrCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="WinFormStrConstants.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PleaseWaitForm.resx">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\CoreUsrCtrl.resx">
       <DependentUpon>CoreUsrCtrl.cs</DependentUpon>
@@ -148,6 +157,7 @@
     <None Include="Resources\FormIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ajax-loader.gif" />
     <Content Include="Resources\BlueBullet16x16.png" />
     <Content Include="Resources\Clipboard16x16.png" />
     <Content Include="Resources\DarkBlueBullet16x16.png" />

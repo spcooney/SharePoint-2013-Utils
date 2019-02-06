@@ -40,12 +40,12 @@
             this.GridData = new Zuby.ADGV.AdvancedDataGridView();
             this.TabProperties = new System.Windows.Forms.TabPage();
             this.SplitContProperties = new System.Windows.Forms.SplitContainer();
+            this.BtnQueryProp = new System.Windows.Forms.Button();
             this.DdListProperties = new System.Windows.Forms.ComboBox();
             this.RchTxtProperties = new System.Windows.Forms.RichTextBox();
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
-            this.BtnQueryProp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).BeginInit();
             this.SplitterTextBox.Panel1.SuspendLayout();
             this.SplitterTextBox.Panel2.SuspendLayout();
@@ -251,6 +251,22 @@
             this.SplitContProperties.SplitterWidth = 1;
             this.SplitContProperties.TabIndex = 0;
             // 
+            // BtnQueryProp
+            // 
+            this.BtnQueryProp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.BtnQueryProp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnQueryProp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
+            this.BtnQueryProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnQueryProp.ForeColor = System.Drawing.Color.Black;
+            this.BtnQueryProp.Location = new System.Drawing.Point(384, 4);
+            this.BtnQueryProp.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnQueryProp.Name = "BtnQueryProp";
+            this.BtnQueryProp.Size = new System.Drawing.Size(104, 23);
+            this.BtnQueryProp.TabIndex = 3;
+            this.BtnQueryProp.Text = "Query";
+            this.BtnQueryProp.UseVisualStyleBackColor = false;
+            this.BtnQueryProp.Click += new System.EventHandler(this.BtnQueryProp_Click);
+            // 
             // DdListProperties
             // 
             this.DdListProperties.Dock = System.Windows.Forms.DockStyle.Left;
@@ -309,22 +325,6 @@
             this.LblHeader.TabIndex = 1;
             this.LblHeader.Text = "SharePoint List";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BtnQueryProp
-            // 
-            this.BtnQueryProp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
-            this.BtnQueryProp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnQueryProp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
-            this.BtnQueryProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnQueryProp.ForeColor = System.Drawing.Color.Black;
-            this.BtnQueryProp.Location = new System.Drawing.Point(384, 4);
-            this.BtnQueryProp.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnQueryProp.Name = "BtnQueryProp";
-            this.BtnQueryProp.Size = new System.Drawing.Size(104, 23);
-            this.BtnQueryProp.TabIndex = 3;
-            this.BtnQueryProp.Text = "Query";
-            this.BtnQueryProp.UseVisualStyleBackColor = false;
-            this.BtnQueryProp.Click += new System.EventHandler(this.BtnQueryProp_Click);
             // 
             // SPListUsrCtrl
             // 

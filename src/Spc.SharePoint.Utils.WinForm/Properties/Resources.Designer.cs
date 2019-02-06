@@ -63,6 +63,16 @@ namespace Spc.SharePoint.Utils.WinForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AjaxLoading16x16 {
+            get {
+                object obj = ResourceManager.GetObject("AjaxLoading16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueBullet16x16 {
             get {
                 object obj = ResourceManager.GetObject("BlueBullet16x16", resourceCulture);

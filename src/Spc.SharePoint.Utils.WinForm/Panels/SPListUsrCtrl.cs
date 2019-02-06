@@ -4,6 +4,7 @@
     using Microsoft.SharePoint;
     using Spc.SharePoint.Utils.Core.Helper;
     using Spc.SharePoint.Utils.Core.Models;
+    using Spc.SharePoint.Utils.WinForm.Forms;
     using Spc.SharePoint.Utils.WinForm.Properties;
     using System;
     using System.Collections.Generic;
@@ -63,10 +64,12 @@
             catch (SPException spex)
             {
                 RchTxtProperties.Text = spex.Message;
+                Log.Error(spex);
             }
             catch (Exception ex)
             {
                 RchTxtProperties.Text = ex.Message;
+                Log.Error(ex);
             }
         }
 
@@ -103,8 +106,11 @@
             {
                 return null;
             }
+            PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
+                pleaseWait.Show(this);
+                Application.DoEvents();
                 using (SPSite site = new SPSite(TxtSPListUrl.Text))
                 {
                     using (SPWeb web = site.OpenWeb())
@@ -112,15 +118,21 @@
                         Uri curUri = new Uri(TxtSPListUrl.Text);
                         return SPListHelper.TryGetListByRelativeUrl(web, curUri.PathAndQuery);
                     }
-                }
+                }            
             }
             catch (SPException spex)
             {
                 RchTxtSchema.Text = spex.Message;
+                Log.Error(spex);
             }
             catch (Exception ex)
             {
                 RchTxtSchema.Text = ex.Message;
+                Log.Error(ex);
+            }
+            finally
+            {
+                pleaseWait.Close();
             }
             return null;
         }
