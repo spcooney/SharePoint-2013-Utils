@@ -1,14 +1,12 @@
 ﻿namespace Spc.SharePoint.Utils.WinForm.Panels
 {
     using log4net;
-    using System;
-    using System.Linq;
-    using System.IO;
-    using System.Windows.Forms;
-    using System.Collections.Generic;
-    using System.Text;
     using Spc.SharePoint.Utils.Core.Helper;
     using Spc.SharePoint.Utils.WinForm.Forms;
+    using System;
+    using System.IO;
+    using System.Text;
+    using System.Windows.Forms;
 
     public partial class FileSplitterUsrCtrl : UserControl
     {

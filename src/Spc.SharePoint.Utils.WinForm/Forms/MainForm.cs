@@ -111,8 +111,8 @@
             // Build level 2 nodes
             tnSharePoint.Nodes.Add(tnSPList);
             tnWin.Nodes.Add(tnIISProcesses);
-            tnWin.Nodes.Add(tnFileSplitter);
             tnWin.Nodes.Add(tnWinSvcs);
+            tnWin.Nodes.Add(tnFileSplitter);
             // Build level 1 nodes
             tnDevTools.Nodes.Add(tnSharePoint);
             tnDevTools.Nodes.Add(tnWin);

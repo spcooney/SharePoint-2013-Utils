@@ -84,7 +84,7 @@
             this.BtnSelectFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
             this.BtnSelectFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSelectFile.ForeColor = System.Drawing.Color.Black;
-            this.BtnSelectFile.Location = new System.Drawing.Point(644, 2);
+            this.BtnSelectFile.Location = new System.Drawing.Point(644, 3);
             this.BtnSelectFile.Margin = new System.Windows.Forms.Padding(0);
             this.BtnSelectFile.Name = "BtnSelectFile";
             this.BtnSelectFile.Size = new System.Drawing.Size(116, 23);
@@ -119,7 +119,8 @@
             // 
             this.SplContainerOutput.Panel2.Controls.Add(this.RchTxtOutput);
             this.SplContainerOutput.Size = new System.Drawing.Size(986, 546);
-            this.SplContainerOutput.SplitterDistance = 27;
+            this.SplContainerOutput.SplitterDistance = 25;
+            this.SplContainerOutput.SplitterWidth = 1;
             this.SplContainerOutput.TabIndex = 1;
             // 
             // BtnSplitFile
@@ -165,7 +166,7 @@
             this.RchTxtOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RchTxtOutput.Location = new System.Drawing.Point(0, 0);
             this.RchTxtOutput.Name = "RchTxtOutput";
-            this.RchTxtOutput.Size = new System.Drawing.Size(986, 515);
+            this.RchTxtOutput.Size = new System.Drawing.Size(986, 520);
             this.RchTxtOutput.TabIndex = 0;
             this.RchTxtOutput.Text = "";
             // 
