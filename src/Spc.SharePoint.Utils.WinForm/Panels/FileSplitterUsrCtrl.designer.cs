@@ -114,6 +114,7 @@
             this.SplContainerOutput.Panel1.Controls.Add(this.BtnSplitFile);
             this.SplContainerOutput.Panel1.Controls.Add(this.NumSelLinesPerFile);
             this.SplContainerOutput.Panel1.Controls.Add(this.LblSplitFileCount);
+            this.SplContainerOutput.Panel1.Resize += new System.EventHandler(this.SplContainerOutput_Panel1_Resize);
             // 
             // SplContainerOutput.Panel2
             // 
@@ -122,6 +123,7 @@
             this.SplContainerOutput.SplitterDistance = 25;
             this.SplContainerOutput.SplitterWidth = 1;
             this.SplContainerOutput.TabIndex = 1;
+            this.SplContainerOutput.SizeChanged += new System.EventHandler(this.SplContainerOutput_SizeChanged);
             // 
             // BtnSplitFile
             // 

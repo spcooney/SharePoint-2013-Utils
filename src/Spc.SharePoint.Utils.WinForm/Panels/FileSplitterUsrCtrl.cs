@@ -21,6 +21,7 @@
         public FileSplitterUsrCtrl()
         {
             InitializeComponent();
+            EnsureSplitDistance();
         }
 
         #endregion
@@ -92,11 +93,26 @@
             }
         }
 
+        private void SplContainerOutput_Panel1_Resize(object sender, EventArgs e)
+        {
+            EnsureSplitDistance();
+        }
+
+        private void SplContainerOutput_SizeChanged(object sender, EventArgs e)
+        {
+            EnsureSplitDistance();
+        }
+
         #region "Form Events"
 
         #endregion
 
         #region "Methods"
+
+        private void EnsureSplitDistance()
+        {
+            SplContainerOutput.SplitterDistance = 25;
+        }
 
         private void WriteOutput(string message)
         {

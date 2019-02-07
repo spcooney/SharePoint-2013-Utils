@@ -69,6 +69,26 @@
             }
         }
 
+        private void SplitterControls_SizeChanged(object sender, EventArgs e)
+        {
+            EnsureSplitterSize();
+        }
+
+        private void SplitterControls_Resize(object sender, EventArgs e)
+        {
+            EnsureSplitterSize();
+        }
+
+        private void SplitContProperties_Layout(object sender, LayoutEventArgs e)
+        {
+            EnsureSplitterSize();
+        }
+
+        private void SplitContProperties_SizeChanged(object sender, EventArgs e)
+        {
+            EnsureSplitterSize();
+        }
+
         private void TxtSPListUrl_Enter(object sender, EventArgs e)
         {
             if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
@@ -95,6 +115,12 @@
         #endregion
 
         #region "Methods"
+
+        private void EnsureSplitterSize()
+        {
+            SplitterControls.SplitterDistance = 25;
+            SplitContProperties.SplitterDistance = 25;
+        }
 
         private SPList TryGetSPList()
         {

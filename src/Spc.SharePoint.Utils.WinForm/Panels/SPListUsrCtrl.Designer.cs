@@ -30,7 +30,7 @@
         {
             this.SplitterTextBox = new System.Windows.Forms.SplitContainer();
             this.TxtSPListUrl = new System.Windows.Forms.TextBox();
-            this.Splitter = new System.Windows.Forms.SplitContainer();
+            this.SplitterControls = new System.Windows.Forms.SplitContainer();
             this.BtnQuery = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.ListTabs = new System.Windows.Forms.TabControl();
@@ -50,10 +50,10 @@
             this.SplitterTextBox.Panel1.SuspendLayout();
             this.SplitterTextBox.Panel2.SuspendLayout();
             this.SplitterTextBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
-            this.Splitter.Panel1.SuspendLayout();
-            this.Splitter.Panel2.SuspendLayout();
-            this.Splitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterControls)).BeginInit();
+            this.SplitterControls.Panel1.SuspendLayout();
+            this.SplitterControls.Panel2.SuspendLayout();
+            this.SplitterControls.SuspendLayout();
             this.ListTabs.SuspendLayout();
             this.TabSchema.SuspendLayout();
             this.TabData.SuspendLayout();
@@ -84,7 +84,7 @@
             // 
             // SplitterTextBox.Panel2
             // 
-            this.SplitterTextBox.Panel2.Controls.Add(this.Splitter);
+            this.SplitterTextBox.Panel2.Controls.Add(this.SplitterControls);
             this.SplitterTextBox.Panel2MinSize = 24;
             this.SplitterTextBox.Size = new System.Drawing.Size(678, 584);
             this.SplitterTextBox.SplitterDistance = 25;
@@ -103,28 +103,30 @@
             this.TxtSPListUrl.Enter += new System.EventHandler(this.TxtSPListUrl_Enter);
             this.TxtSPListUrl.Leave += new System.EventHandler(this.TxtSPListUrl_Leave);
             // 
-            // Splitter
+            // SplitterControls
             // 
-            this.Splitter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Splitter.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.Splitter.IsSplitterFixed = true;
-            this.Splitter.Location = new System.Drawing.Point(0, 0);
-            this.Splitter.Name = "Splitter";
-            this.Splitter.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.SplitterControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitterControls.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.SplitterControls.IsSplitterFixed = true;
+            this.SplitterControls.Location = new System.Drawing.Point(0, 0);
+            this.SplitterControls.Name = "SplitterControls";
+            this.SplitterControls.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // Splitter.Panel1
+            // SplitterControls.Panel1
             // 
-            this.Splitter.Panel1.Controls.Add(this.BtnQuery);
-            this.Splitter.Panel1.Controls.Add(this.BtnRefresh);
+            this.SplitterControls.Panel1.Controls.Add(this.BtnQuery);
+            this.SplitterControls.Panel1.Controls.Add(this.BtnRefresh);
             // 
-            // Splitter.Panel2
+            // SplitterControls.Panel2
             // 
-            this.Splitter.Panel2.Controls.Add(this.ListTabs);
-            this.Splitter.Panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.Splitter.Size = new System.Drawing.Size(678, 555);
-            this.Splitter.SplitterDistance = 28;
-            this.Splitter.SplitterWidth = 1;
-            this.Splitter.TabIndex = 1;
+            this.SplitterControls.Panel2.Controls.Add(this.ListTabs);
+            this.SplitterControls.Panel2.Padding = new System.Windows.Forms.Padding(3);
+            this.SplitterControls.Size = new System.Drawing.Size(678, 555);
+            this.SplitterControls.SplitterDistance = 28;
+            this.SplitterControls.SplitterWidth = 1;
+            this.SplitterControls.TabIndex = 1;
+            this.SplitterControls.SizeChanged += new System.EventHandler(this.SplitterControls_SizeChanged);
+            this.SplitterControls.Resize += new System.EventHandler(this.SplitterControls_Resize);
             // 
             // BtnQuery
             // 
@@ -133,7 +135,7 @@
             this.BtnQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
             this.BtnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnQuery.ForeColor = System.Drawing.Color.Black;
-            this.BtnQuery.Location = new System.Drawing.Point(4, 3);
+            this.BtnQuery.Location = new System.Drawing.Point(4, 2);
             this.BtnQuery.Margin = new System.Windows.Forms.Padding(0);
             this.BtnQuery.Name = "BtnQuery";
             this.BtnQuery.Size = new System.Drawing.Size(104, 23);
@@ -149,7 +151,7 @@
             this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
             this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.BtnRefresh.Location = new System.Drawing.Point(113, 3);
+            this.BtnRefresh.Location = new System.Drawing.Point(113, 2);
             this.BtnRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(104, 23);
@@ -250,6 +252,8 @@
             this.SplitContProperties.SplitterDistance = 25;
             this.SplitContProperties.SplitterWidth = 1;
             this.SplitContProperties.TabIndex = 0;
+            this.SplitContProperties.SizeChanged += new System.EventHandler(this.SplitContProperties_SizeChanged);
+            this.SplitContProperties.Layout += new System.Windows.Forms.LayoutEventHandler(this.SplitContProperties_Layout);
             // 
             // BtnQueryProp
             // 
@@ -258,7 +262,7 @@
             this.BtnQueryProp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
             this.BtnQueryProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnQueryProp.ForeColor = System.Drawing.Color.Black;
-            this.BtnQueryProp.Location = new System.Drawing.Point(384, 4);
+            this.BtnQueryProp.Location = new System.Drawing.Point(384, 1);
             this.BtnQueryProp.Margin = new System.Windows.Forms.Padding(0);
             this.BtnQueryProp.Name = "BtnQueryProp";
             this.BtnQueryProp.Size = new System.Drawing.Size(104, 23);
@@ -269,9 +273,8 @@
             // 
             // DdListProperties
             // 
-            this.DdListProperties.Dock = System.Windows.Forms.DockStyle.Left;
             this.DdListProperties.FormattingEnabled = true;
-            this.DdListProperties.Location = new System.Drawing.Point(0, 4);
+            this.DdListProperties.Location = new System.Drawing.Point(0, 2);
             this.DdListProperties.Name = "DdListProperties";
             this.DdListProperties.Size = new System.Drawing.Size(378, 21);
             this.DdListProperties.TabIndex = 0;
@@ -341,10 +344,10 @@
             this.SplitterTextBox.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).EndInit();
             this.SplitterTextBox.ResumeLayout(false);
-            this.Splitter.Panel1.ResumeLayout(false);
-            this.Splitter.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Splitter)).EndInit();
-            this.Splitter.ResumeLayout(false);
+            this.SplitterControls.Panel1.ResumeLayout(false);
+            this.SplitterControls.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterControls)).EndInit();
+            this.SplitterControls.ResumeLayout(false);
             this.ListTabs.ResumeLayout(false);
             this.TabSchema.ResumeLayout(false);
             this.TabData.ResumeLayout(false);
@@ -363,7 +366,7 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer Splitter;
+        private System.Windows.Forms.SplitContainer SplitterControls;
         private System.Windows.Forms.TableLayoutPanel TblHeader;
         private System.Windows.Forms.PictureBox PicBoxTitle;
         private System.Windows.Forms.Label LblHeader;
