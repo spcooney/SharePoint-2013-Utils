@@ -4,12 +4,7 @@
     using Spc.SharePoint.Utils.WinForm.Panels;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     public partial class MainForm : CoreWinForm
@@ -184,8 +179,9 @@
             UsrCtrlSPList.Dock = DockStyle.Fill;
             UsrCtrlWinSvcs = new WinSvcsUsrCtrl();
             UsrCtrlWinSvcs.Dock = DockStyle.Fill;
-            UserControls.Add(UsrCtrlSPList);
             UserControls.Add(UsrCtrlIisMgr);
+            UserControls.Add(UsrCtrlFileSplitter);
+            UserControls.Add(UsrCtrlSPList);
             UserControls.Add(UsrCtrlWinSvcs);
         }
 
