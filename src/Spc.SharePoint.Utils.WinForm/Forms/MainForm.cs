@@ -19,8 +19,9 @@
         private static readonly ILog Log = LogManager.GetLogger(typeof(MainForm));
         private List<Control> _ctrlFocusHistory;
         private List<UserControl> _usrControls;
-        private SPListUsrCtrl _usrCtrlSPList;
         private IisMgrUsrCtrl _usrCtrlIisMgr;
+        private FileSplitterUsrCtrl _usrCtrlFileSplitter;
+        private SPListUsrCtrl _usrCtrlSPList;
         private WinSvcsUsrCtrl _usrCtrlWinSvcs;
 
         #endregion
@@ -93,9 +94,14 @@
             tnIISProcesses.Text = WinFormStrConstants.NodeText.NodeIISProcesses;
             tnIISProcesses.ImageIndex = 8;
             tnIISProcesses.SelectedImageIndex = 11;
+            TreeNode tnFileSplitter = new TreeNode();
+            tnFileSplitter.Name = WinFormStrConstants.NodeNames.NodeWinServices;
+            tnFileSplitter.Text = WinFormStrConstants.NodeText.NodeWinServices;
+            tnFileSplitter.ImageIndex = 8;
+            tnFileSplitter.SelectedImageIndex = 11;
             TreeNode tnWinSvcs = new TreeNode();
-            tnWinSvcs.Name = WinFormStrConstants.NodeNames.NodeWinServices;
-            tnWinSvcs.Text = WinFormStrConstants.NodeText.NodeWinServices;
+            tnWinSvcs.Name = WinFormStrConstants.NodeNames.NodeFileSplitter;
+            tnWinSvcs.Text = WinFormStrConstants.NodeText.NodeFileSplitter;
             tnWinSvcs.ImageIndex = 8;
             tnWinSvcs.SelectedImageIndex = 11;
 
@@ -105,6 +111,7 @@
             // Build level 2 nodes
             tnSharePoint.Nodes.Add(tnSPList);
             tnWin.Nodes.Add(tnIISProcesses);
+            tnWin.Nodes.Add(tnFileSplitter);
             tnWin.Nodes.Add(tnWinSvcs);
             // Build level 1 nodes
             tnDevTools.Nodes.Add(tnSharePoint);
@@ -169,10 +176,12 @@
 
         private void InitUserControls()
         {
-            UsrCtrlSPList = new SPListUsrCtrl();
-            UsrCtrlSPList.Dock = DockStyle.Fill;
             UsrCtrlIisMgr = new IisMgrUsrCtrl();
             UsrCtrlIisMgr.Dock = DockStyle.Fill;
+            UsrCtrlFileSplitter = new FileSplitterUsrCtrl();
+            UsrCtrlFileSplitter.Dock = DockStyle.Fill;
+            UsrCtrlSPList = new SPListUsrCtrl();
+            UsrCtrlSPList.Dock = DockStyle.Fill;
             UsrCtrlWinSvcs = new WinSvcsUsrCtrl();
             UsrCtrlWinSvcs.Dock = DockStyle.Fill;
             UserControls.Add(UsrCtrlSPList);
@@ -185,6 +194,8 @@
             List<Control> ctrls = new List<Control>();
             this.GetAllControls(this, ref ctrls);
             this.GetAllControls(this.UsrCtrlIisMgr, ref ctrls);
+            this.GetAllControls(this.UsrCtrlFileSplitter, ref ctrls);
+            this.GetAllControls(this.UsrCtrlSPList, ref ctrls);
             this.GetAllControls(this.UsrCtrlWinSvcs, ref ctrls);
             foreach (Control c in ctrls)
             {
@@ -254,17 +265,14 @@
         {
             switch (node.Name)
             {
-                //case WinFormStrConstants.NodeNames.NodeJavaScriptMinify:
-                //    this.BindUserControl(this.UsrCtrlJsMinify);
-                //    break;
-                //case WinFormStrConstants.NodeNames.NodeCssMinify:
-                //    this.BindUserControl(this.UsrCtrlCssMinify);
-                //    break;
-                case WinFormStrConstants.NodeNames.NodeSharePointList:
-                    this.BindUserControl(this.UsrCtrlSPList);
-                    break;
                 case WinFormStrConstants.NodeNames.NodeIISProcesses:
-                    this.BindUserControl(_usrCtrlIisMgr);
+                    this.BindUserControl(UsrCtrlIisMgr);
+                    break;
+                case WinFormStrConstants.NodeNames.NodeFileSplitter:
+                    this.BindUserControl(UsrCtrlFileSplitter);
+                    break;
+                case WinFormStrConstants.NodeNames.NodeSharePointList:
+                    this.BindUserControl(UsrCtrlSPList);
                     break;
                 case WinFormStrConstants.NodeNames.NodeWinServices:
                     this.BindUserControl(this.UsrCtrlWinSvcs);
@@ -380,7 +388,7 @@
 
         public List<UserControl> UserControls
         {
-            get 
+            get
             {
                 if (_usrControls == null)
                 {
@@ -388,9 +396,9 @@
                 }
                 return _usrControls;
             }
-            set 
-            { 
-                _usrControls = value; 
+            set
+            {
+                _usrControls = value;
             }
         }
 
@@ -398,17 +406,18 @@
 
         #region "Accessors"
 
-        public SPListUsrCtrl UsrCtrlSPList
+        public FileSplitterUsrCtrl UsrCtrlFileSplitter
         {
             get
             {
-                return _usrCtrlSPList;
+                return _usrCtrlFileSplitter;
             }
             set
             {
-                _usrCtrlSPList = value;
+                _usrCtrlFileSplitter = value;
             }
         }
+
 
         public IisMgrUsrCtrl UsrCtrlIisMgr
         {
@@ -419,6 +428,18 @@
             set
             {
                 _usrCtrlIisMgr = value;
+            }
+        }
+
+        public SPListUsrCtrl UsrCtrlSPList
+        {
+            get
+            {
+                return _usrCtrlSPList;
+            }
+            set
+            {
+                _usrCtrlSPList = value;
             }
         }
 

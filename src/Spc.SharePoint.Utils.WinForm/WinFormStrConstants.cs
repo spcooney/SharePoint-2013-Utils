@@ -9,6 +9,11 @@
         /// </summary>
         /// <remarks>SharePoint 2013 Util</remarks>
         public const string ApplicationTitle = "SharePoint 2013 Util";
+        /// <summary>
+        /// String format for displaying console log entries.
+        /// </summary>
+        /// <remarks>({0}) {1}</remarks>
+        public const string ConsoleEntryFormat = "({0}) {1}";
 
         internal static class NodeNames
         {
@@ -38,6 +43,8 @@
             internal const string NodeWindows = "NodeWindows";
             /// <summary>NodeWinServices</summary>
             internal const string NodeWinServices = "NodeWinServices";
+            /// <summary>NodeFileSplitter</summary>
+            internal const string NodeFileSplitter = "NodeFileSplitter";
         }
 
         internal static class NodeText
@@ -68,6 +75,8 @@
             internal const string NodeWindows = "Windows";
             /// <summary>IIS Processes</summary>
             internal const string NodeWinServices = "Win Services";
+            /// <summary>File Splitter</summary>
+            internal const string NodeFileSplitter = "File Splitter";
         }
     }
 }

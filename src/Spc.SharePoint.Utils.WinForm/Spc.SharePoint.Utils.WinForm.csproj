@@ -87,6 +87,12 @@
     <Compile Include="Panels\CoreUsrCtrl.designer.cs">
       <DependentUpon>CoreUsrCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels\FileSplitterUsrCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\FileSplitterUsrCtrl.designer.cs">
+      <DependentUpon>FileSplitterUsrCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panels\IisMgrUsrCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\CoreUsrCtrl.resx">
       <DependentUpon>CoreUsrCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\FileSplitterUsrCtrl.resx">
+      <DependentUpon>FileSplitterUsrCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\IisMgrUsrCtrl.resx">
       <DependentUpon>IisMgrUsrCtrl.cs</DependentUpon>
