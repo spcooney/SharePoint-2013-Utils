@@ -149,7 +149,6 @@
             this.NumSelLinesPerFile.Name = "NumSelLinesPerFile";
             this.NumSelLinesPerFile.Size = new System.Drawing.Size(102, 20);
             this.NumSelLinesPerFile.TabIndex = 2;
-            this.NumSelLinesPerFile.ThousandsSeparator = true;
             // 
             // LblSplitFileCount
             // 

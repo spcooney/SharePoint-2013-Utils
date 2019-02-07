@@ -72,7 +72,7 @@
                 {
                     sb.AppendLine(lines[i]);
                     lineCount++;
-                    if (lineCount == NumSelLinesPerFile.Value)
+                    if ((lineCount == NumSelLinesPerFile.Value) || (i >= numOfLines))
                     {
                         string fileName = (fileNameNoEx + CharUtil.UnderscoreStr + fileNum + fileExt);
                         File.WriteAllText(Path.Combine(filePath, fileName), sb.ToString());
