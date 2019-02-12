@@ -43,10 +43,12 @@
             this.FontSize12pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
             this.FontSize14pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
             this.FontSize16pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripProgress = new System.Windows.Forms.ToolStripProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.SpltCnt)).BeginInit();
             this.SpltCnt.Panel1.SuspendLayout();
             this.SpltCnt.Panel2.SuspendLayout();
             this.SpltCnt.SuspendLayout();
+            this.StsBar.SuspendLayout();
             this.MenuStr.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +119,8 @@
             // StsBar
             // 
             this.StsBar.BackColor = System.Drawing.Color.White;
+            this.StsBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripProgress});
             this.StsBar.Location = new System.Drawing.Point(0, 631);
             this.StsBar.Name = "StsBar";
             this.StsBar.Size = new System.Drawing.Size(1146, 22);
@@ -188,6 +192,13 @@
             this.FontSize16pxMenuStr.Text = "16 px";
             this.FontSize16pxMenuStr.Click += new System.EventHandler(this.FontSize16pxMenuStr_Click);
             // 
+            // ToolStripProgress
+            // 
+            this.ToolStripProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.ToolStripProgress.Name = "ToolStripProgress";
+            this.ToolStripProgress.Size = new System.Drawing.Size(100, 16);
+            this.ToolStripProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +219,8 @@
             this.SpltCnt.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SpltCnt)).EndInit();
             this.SpltCnt.ResumeLayout(false);
+            this.StsBar.ResumeLayout(false);
+            this.StsBar.PerformLayout();
             this.MenuStr.ResumeLayout(false);
             this.MenuStr.PerformLayout();
             this.ResumeLayout(false);
@@ -230,5 +243,6 @@
         private System.Windows.Forms.ToolStripMenuItem FontSize14pxMenuStr;
         private System.Windows.Forms.ToolStripMenuItem FontSize16pxMenuStr;
         private System.Windows.Forms.ImageList ImgList;
+        private System.Windows.Forms.ToolStripProgressBar ToolStripProgress;
     }
 }

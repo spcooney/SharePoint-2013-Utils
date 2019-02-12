@@ -60,8 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\CharUtil.cs" />
+    <Compile Include="Helper\ConvertUtil.cs" />
+    <Compile Include="Helper\DbNullUtil.cs" />
+    <Compile Include="Helper\GuidUtil.cs" />
     <Compile Include="Helper\Log4NetHelper.cs" />
     <Compile Include="Helper\NullUtil.cs" />
+    <Compile Include="Helper\RegexUtil.cs" />
     <Compile Include="Helper\SharePointUtil.cs" />
     <Compile Include="Helper\SPListHelper.cs" />
     <Compile Include="Helper\StringUtil.cs" />

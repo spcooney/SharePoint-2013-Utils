@@ -28,6 +28,7 @@
             InitializeComponent();
             InitUserControls();
             InitForm();
+            ToolStripProgress.Visible = false;
         }
 
         #endregion

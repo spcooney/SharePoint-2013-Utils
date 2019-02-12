@@ -41,6 +41,7 @@
             this.LblHeader = new System.Windows.Forms.Label();
             this.recycleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileDlg = new System.Windows.Forms.OpenFileDialog();
+            this.BtnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
             this.Splitter.Panel1.SuspendLayout();
             this.Splitter.Panel2.SuspendLayout();
@@ -111,6 +112,7 @@
             // 
             // SplContainerOutput.Panel1
             // 
+            this.SplContainerOutput.Panel1.Controls.Add(this.BtnCancel);
             this.SplContainerOutput.Panel1.Controls.Add(this.BtnSplitFile);
             this.SplContainerOutput.Panel1.Controls.Add(this.NumSelLinesPerFile);
             this.SplContainerOutput.Panel1.Controls.Add(this.LblSplitFileCount);
@@ -129,6 +131,7 @@
             // 
             this.BtnSplitFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
             this.BtnSplitFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSplitFile.Enabled = false;
             this.BtnSplitFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
             this.BtnSplitFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSplitFile.ForeColor = System.Drawing.Color.Black;
@@ -221,6 +224,23 @@
             // 
             this.OpenFileDlg.DefaultExt = "log";
             // 
+            // BtnCancel
+            // 
+            this.BtnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.BtnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCancel.Enabled = false;
+            this.BtnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(153)))), ((int)(((byte)(210)))));
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancel.ForeColor = System.Drawing.Color.Black;
+            this.BtnCancel.Location = new System.Drawing.Point(396, 2);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(116, 23);
+            this.BtnCancel.TabIndex = 3;
+            this.BtnCancel.Text = "Cancel";
+            this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // FileSplitterUsrCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,5 +284,6 @@
         private System.Windows.Forms.Label LblSplitFileCount;
         private System.Windows.Forms.NumericUpDown NumSelLinesPerFile;
         private System.Windows.Forms.Button BtnSplitFile;
+        private System.Windows.Forms.Button BtnCancel;
     }
 }
