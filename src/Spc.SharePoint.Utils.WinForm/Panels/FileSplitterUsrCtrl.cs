@@ -16,6 +16,7 @@
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(FileSplitterUsrCtrl));
         private BackgroundWorker bwReadLines = null;
+        private BackgroundWorker bwSplitFile = null;
 
         #endregion
 
@@ -47,6 +48,8 @@
                 TxtBoxFileLoc.Text = OpenFileDlg.FileName;
                 ShowProgress(true);
                 bwReadLines = new BackgroundWorker();
+                bwReadLines.WorkerReportsProgress = true;
+                bwReadLines.WorkerSupportsCancellation = true;
                 bwReadLines.DoWork += BackgroundWorker_ReadFileLines;
                 bwReadLines.ProgressChanged += BackgroundWorker_ReadProgressChanged;
                 bwReadLines.RunWorkerCompleted += BackgroundWorker_ReadCompleted;
@@ -93,12 +96,12 @@
             {
                 e.Result = 0;
                 Log.Error(ex);
-                WriteOutput("Failed to open file: " + OpenFileDlg.FileName + ". " + ex.Message);
+                bwReadLines.ReportProgress(100, "Failed to open file: " + OpenFileDlg.FileName + ". " + ex.Message);
             }
         }
 
         private void BackgroundWorker_ReadProgressChanged(object sender, ProgressChangedEventArgs e)
-        {            
+        {
             if (e.UserState != null)
             {
                 WriteOutput(e.UserState.ToString());
@@ -107,14 +110,32 @@
 
         private void BtnSplitFile_Click(object sender, EventArgs e)
         {
-            WriteOutput("Starting to split the file: " + TxtBoxFileLoc.Text);
-            //PleaseWaitForm pleaseWait = new PleaseWaitForm();
+            if (String.IsNullOrEmpty(TxtBoxFileLoc.Text))
+            {
+                WriteOutput("Please select a file first.");
+                return;
+            }
+            ShowProgress(true);
+            bwSplitFile = new BackgroundWorker();
+            bwSplitFile.WorkerReportsProgress = true;
+            bwSplitFile.WorkerSupportsCancellation = true;
+            bwSplitFile.DoWork += BackgroundWorker_SplitFileLines;
+            bwSplitFile.ProgressChanged += BackgroundWorker_SplitProgressChanged;
+            bwSplitFile.RunWorkerCompleted += BackgroundWorker_SplitCompleted;
+            if (bwSplitFile.IsBusy != true)
+            {
+                WriteOutput("Starting to split the file into " + NumSelLinesPerFile.Value + " lines...");
+                ModifyBtnAbility(BtnCancel, true);
+                ModifyBtnAbility(BtnSelectFile, false);
+                ModifyBtnAbility(BtnSplitFile, false);
+                bwSplitFile.RunWorkerAsync();
+            }
+        }
+
+        private void BackgroundWorker_SplitFileLines(object sender, DoWorkEventArgs e)
+        {
             try
             {
-                //pleaseWait.Show(this);
-                //Application.DoEvents();
-                //ShowProgress(true);
-                Application.DoEvents();
                 string[] lines = File.ReadAllLines(TxtBoxFileLoc.Text);
                 int numOfLines = lines.Length;
                 int lineCount = 0;
@@ -125,13 +146,18 @@
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < numOfLines; i++)
                 {
+                    if (bwSplitFile.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
                     sb.AppendLine(lines[i]);
                     lineCount++;
                     if ((lineCount == NumSelLinesPerFile.Value) || (i >= (numOfLines - 1)))
                     {
                         string fileName = (fileNameNoEx + CharUtil.UnderscoreStr + fileNum + fileExt);
                         File.WriteAllText(Path.Combine(filePath, fileName), sb.ToString());
-                        WriteOutput("File created: " + Path.Combine(filePath, fileName));
+                        bwSplitFile.ReportProgress(0, "File created: " + Path.Combine(filePath, fileName));
                         sb = new StringBuilder();
                         fileNum++;
                         lineCount = 0;
@@ -141,14 +167,36 @@
             catch (Exception ex)
             {
                 Log.Error(ex);
-                WriteOutput("Failed to split the file: " + OpenFileDlg.FileName);
+                bwSplitFile.ReportProgress(100, "Failed to split the file: " + OpenFileDlg.FileName + ". " + ex.Message);
             }
-            finally
+        }
+
+        private void BackgroundWorker_SplitProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.UserState != null)
             {
-                WriteOutput("Split complete");
-                //pleaseWait.Close();
-                ShowProgress(false);
+                WriteOutput(e.UserState.ToString());
             }
+        }
+
+        private void BackgroundWorker_SplitCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if ((e.Cancelled == true))
+            {
+                WriteOutput("Splitting the file was stopped.");
+            }
+            else if (!(e.Error == null))
+            {
+                WriteOutput(e.Error.Message);
+            }
+            if (e.Result != null)
+            {
+                WriteOutput("Split complete.");
+            }
+            ModifyBtnAbility(BtnCancel, false);
+            ModifyBtnAbility(BtnSplitFile, true);
+            ModifyBtnAbility(BtnSelectFile, true);
+            ShowProgress(false);
         }
 
         private void SplContainerOutput_Panel1_Resize(object sender, EventArgs e)

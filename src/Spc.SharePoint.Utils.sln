@@ -34,6 +34,11 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Spc.SharePoint.Utils.WinFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedDataGridView", "AdvancedDataGridView\AdvancedDataGridView.csproj", "{6EBA0A55-B390-4479-A564-58D46094998D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Temp", "Temp", "{29C426E7-BEC3-4203-97DC-FC5BD5E6B535}"
+	ProjectSection(SolutionItems) = preProject
+		Solution\Temp\TempCS.cs = Solution\Temp\TempCS.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,5 +68,6 @@ Global
 		{85818888-FBAC-4A0C-985C-3630CB272719} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 		{825418EC-8C4A-43AE-AC7E-2DCE137F6CD8} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 		{8631F907-D73E-40B7-9932-E681557BD398} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
+		{29C426E7-BEC3-4203-97DC-FC5BD5E6B535} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 	EndGlobalSection
 EndGlobal
