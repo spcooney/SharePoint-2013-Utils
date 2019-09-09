@@ -30,6 +30,7 @@
         {
             InitializeComponent();
             SetPlaceholderText();
+            SplitterGrids.Panel1Collapsed = true;
         }
 
         #endregion
@@ -214,12 +215,20 @@
                 {
                     ChkBoxListFilters.Items.Add(col.ColumnName, true);
                 }
+                //ChkBoxListFilters.Items.Add("Hide All", false);
                 ChkBoxListFilters.ItemCheck += ChkBoxListFilters_ItemCheck;
             }
         }
 
         private void ChkBoxListFilters_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            //if (ChkBoxListFilters.Items[e.Index].Equals("Hide All"))
+            //{
+            //    foreach (DataGridViewColumn col in GridData.Columns)
+            //    {
+            //        col.Visible = (e.NewValue == CheckState.Checked);
+            //    }
+            //}
             if (GridData.Columns[e.Index] != null)
             {
                 // Hiding the column when it's 

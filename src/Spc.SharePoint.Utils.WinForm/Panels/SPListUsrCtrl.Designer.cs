@@ -176,7 +176,7 @@
             this.ListTabs.Location = new System.Drawing.Point(0, 0);
             this.ListTabs.Name = "ListTabs";
             this.ListTabs.SelectedIndex = 0;
-            this.ListTabs.Size = new System.Drawing.Size(672, 520);
+            this.ListTabs.Size = new System.Drawing.Size(672, 454);
             this.ListTabs.TabIndex = 2;
             this.ListTabs.Selected += new System.Windows.Forms.TabControlEventHandler(this.ListTabs_Selected);
             // 
@@ -207,7 +207,7 @@
             this.TabData.Location = new System.Drawing.Point(4, 22);
             this.TabData.Name = "TabData";
             this.TabData.Padding = new System.Windows.Forms.Padding(3);
-            this.TabData.Size = new System.Drawing.Size(664, 494);
+            this.TabData.Size = new System.Drawing.Size(664, 428);
             this.TabData.TabIndex = 1;
             this.TabData.Text = "Data";
             this.TabData.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             this.GridData.Location = new System.Drawing.Point(3, 3);
             this.GridData.Name = "GridData";
             this.GridData.ReadOnly = true;
-            this.GridData.Size = new System.Drawing.Size(658, 488);
+            this.GridData.Size = new System.Drawing.Size(658, 422);
             this.GridData.TabIndex = 0;
             // 
             // TabProperties
@@ -347,7 +347,6 @@
             // SplitterGrids.Panel1
             // 
             this.SplitterGrids.Panel1.Controls.Add(this.GrpColFilter);
-            this.SplitterGrids.Panel1Collapsed = true;
             this.SplitterGrids.Panel1MinSize = 0;
             // 
             // SplitterGrids.Panel2
