@@ -39,6 +39,43 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Temp", "Temp", "{29C426E7-B
 		Solution\Temp\TempCS.cs = Solution\Temp\TempCS.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerShell", "PowerShell", "{06086D8F-0122-4932-8A63-F2AF64F92421}"
+	ProjectSection(SolutionItems) = preProject
+		Solution\PowerShell\AddMimeToWebApp.ps1 = Solution\PowerShell\AddMimeToWebApp.ps1
+		Solution\PowerShell\AppFabricSettings.ps1 = Solution\PowerShell\AppFabricSettings.ps1
+		Solution\PowerShell\BeezyUtility.ps1 = Solution\PowerShell\BeezyUtility.ps1
+		Solution\PowerShell\Catalog-FeaturesInServerHives.ps1 = Solution\PowerShell\Catalog-FeaturesInServerHives.ps1
+		Solution\PowerShell\Catalog-FeaturesInSolution.ps1 = Solution\PowerShell\Catalog-FeaturesInSolution.ps1
+		Solution\PowerShell\ContentDbUpgrade.ps1 = Solution\PowerShell\ContentDbUpgrade.ps1
+		Solution\PowerShell\DeployUtil.ps1 = Solution\PowerShell\DeployUtil.ps1
+		Solution\PowerShell\EcmDeploy.ps1 = Solution\PowerShell\EcmDeploy.ps1
+		Solution\PowerShell\ExportSolutions.ps1 = Solution\PowerShell\ExportSolutions.ps1
+		Solution\PowerShell\FeatureVersionCheck.ps1 = Solution\PowerShell\FeatureVersionCheck.ps1
+		Solution\PowerShell\FeatureVersionUpdate.ps1 = Solution\PowerShell\FeatureVersionUpdate.ps1
+		Solution\PowerShell\FindAlerts.ps1 = Solution\PowerShell\FindAlerts.ps1
+		Solution\PowerShell\FindWebPartsInUse.ps1 = Solution\PowerShell\FindWebPartsInUse.ps1
+		Solution\PowerShell\FindWebProperties.ps1 = Solution\PowerShell\FindWebProperties.ps1
+		Solution\PowerShell\GetDeletedSites.ps1 = Solution\PowerShell\GetDeletedSites.ps1
+		Solution\PowerShell\GetIISWorkerProcesses.ps1 = Solution\PowerShell\GetIISWorkerProcesses.ps1
+		Solution\PowerShell\GetSiteColSPVersion.ps1 = Solution\PowerShell\GetSiteColSPVersion.ps1
+		Solution\PowerShell\ImportExportData.ps1 = Solution\PowerShell\ImportExportData.ps1
+		Solution\PowerShell\ImportExportGAC.ps1 = Solution\PowerShell\ImportExportGAC.ps1
+		Solution\PowerShell\ListsUsingSiteColumn.ps1 = Solution\PowerShell\ListsUsingSiteColumn.ps1
+		Solution\PowerShell\RemoveOrphanFeatures.ps1 = Solution\PowerShell\RemoveOrphanFeatures.ps1
+		Solution\PowerShell\RemoveUsersFromSite.ps1 = Solution\PowerShell\RemoveUsersFromSite.ps1
+		Solution\PowerShell\SearchServiceProxy.ps1 = Solution\PowerShell\SearchServiceProxy.ps1
+		Solution\PowerShell\SmtpSendEmail.ps1 = Solution\PowerShell\SmtpSendEmail.ps1
+		Solution\PowerShell\SmtpSendEmailWithAttachments.ps1 = Solution\PowerShell\SmtpSendEmailWithAttachments.ps1
+		Solution\PowerShell\SplitTextFile.ps1 = Solution\PowerShell\SplitTextFile.ps1
+		Solution\PowerShell\TimerJobHistory.ps1 = Solution\PowerShell\TimerJobHistory.ps1
+		Solution\PowerShell\TimerJobs.ps1 = Solution\PowerShell\TimerJobs.ps1
+		Solution\PowerShell\UlsCommands.ps1 = Solution\PowerShell\UlsCommands.ps1
+		Solution\PowerShell\UpgradeSharePoint.ps1 = Solution\PowerShell\UpgradeSharePoint.ps1
+		Solution\PowerShell\UserPermissions.ps1 = Solution\PowerShell\UserPermissions.ps1
+		Solution\PowerShell\Utilities.ps1 = Solution\PowerShell\Utilities.ps1
+		Solution\PowerShell\WordCount.ps1 = Solution\PowerShell\WordCount.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,5 +106,6 @@ Global
 		{825418EC-8C4A-43AE-AC7E-2DCE137F6CD8} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 		{8631F907-D73E-40B7-9932-E681557BD398} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 		{29C426E7-BEC3-4203-97DC-FC5BD5E6B535} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
+		{06086D8F-0122-4932-8A63-F2AF64F92421} = {F55BF4D9-0D1A-45F9-A365-FEDDF2F55755}
 	EndGlobalSection
 EndGlobal

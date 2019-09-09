@@ -1,0 +1,2 @@
+# Returns site collections that have been deleted in the past 7 days
+Get-SPDeletedSite -WebApplication "https://webappname" | Select-Object | Where-Object {$_.DeletionTime -lt (get-date).AddDays(7)} | Sort-Object DeletionTime
