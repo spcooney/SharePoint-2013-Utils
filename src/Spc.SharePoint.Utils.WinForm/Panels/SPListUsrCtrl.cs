@@ -56,7 +56,7 @@
             }
             try
             {
-                RchTxtProperties.Text = curList.GetType().GetProperty(DdListProperties.Text).GetValue(curList, null).ToString();                
+                RchTxtProperties.Text = curList.GetType().GetProperty(DdListProperties.Text).GetValue(curList, null).ToString();
             }
             catch (SPException spex)
             {
@@ -141,7 +141,7 @@
                         Uri curUri = new Uri(TxtSPListUrl.Text);
                         return SPListHelper.TryGetListByRelativeUrl(web, curUri.PathAndQuery);
                     }
-                }            
+                }
             }
             catch (SPException spex)
             {
@@ -179,6 +179,7 @@
                 PopulateSchema(curList.SchemaXml);
                 PopulateListData(curList.Items.GetDataTable());
                 PopulatePropertiesDropDown(curList);
+                ListTabs.SelectedTab = TabData;
             }
             catch (Exception ex)
             {
@@ -204,7 +205,7 @@
         }
 
         private void PopulateListData(DataTable spListData)
-        {           
+        {
             GridData.DataSource = spListData;
             GridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             // Add the checkboxes to allow the user to show or hide columns
@@ -242,7 +243,7 @@
             if (e.TabPage.Text.Equals("Data"))
             {
                 SplitterGrids.Panel1Collapsed = false;
-                SplitterGrids.Panel1.Show();               
+                SplitterGrids.Panel1.Show();
             }
             else
             {
@@ -283,6 +284,24 @@
         }
 
         #endregion
+
+        private void TsmiShowAll_Click(object sender, EventArgs e)
+        {
+            ToggleShowHideChecks(true);
+        }
+
+        private void TsmiShowNone_Click(object sender, EventArgs e)
+        {
+            ToggleShowHideChecks(false);
+        }
+
+        private void ToggleShowHideChecks(bool chkd)
+        {
+            for (int i = 0; i < ChkBoxListFilters.Items.Count; i++)
+            {
+                ChkBoxListFilters.SetItemChecked(i, chkd);
+            }
+        }
 
         #region "Accessors"
 
