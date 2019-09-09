@@ -42,12 +42,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // LblPleaseWait
             // 
             this.LblPleaseWait.AutoSize = true;
             this.LblPleaseWait.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPleaseWait.Location = new System.Drawing.Point(69, 25);
+            this.LblPleaseWait.Location = new System.Drawing.Point(42, 25);
             this.LblPleaseWait.Name = "LblPleaseWait";
             this.LblPleaseWait.Size = new System.Drawing.Size(115, 20);
             this.LblPleaseWait.TabIndex = 1;

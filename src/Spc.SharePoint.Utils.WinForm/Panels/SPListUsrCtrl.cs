@@ -161,18 +161,33 @@
 
         private void QueryList()
         {
-            if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
+            PleaseWaitForm pleaseWait = new PleaseWaitForm();
+            try
             {
-                return;
+                pleaseWait.Show(this);
+                Application.DoEvents();
+                if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
+                {
+                    return;
+                }
+                curList = TryGetSPList();
+                if (curList == null)
+                {
+                    return;
+                }
+                PopulateSchema(curList.SchemaXml);
+                PopulateListData(curList.Items.GetDataTable());
+                PopulatePropertiesDropDown(curList);
             }
-            curList = TryGetSPList();
-            if (curList == null)
+            catch (Exception ex)
             {
-                return;
+                RchTxtSchema.Text = ex.Message;
+                Log.Error(ex);
             }
-            PopulateSchema(curList.SchemaXml);
-            PopulateListData(curList.Items.GetDataTable());
-            PopulatePropertiesDropDown(curList);
+            finally
+            {
+                pleaseWait.Close();
+            }
         }
 
         private void SetPlaceholderText()
@@ -188,8 +203,43 @@
         }
 
         private void PopulateListData(DataTable spListData)
-        {
+        {           
             GridData.DataSource = spListData;
+            GridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            // Add the checkboxes to allow the user to show or hide columns
+            if ((spListData != null) && (spListData.Columns.Count > 0))
+            {
+                ChkBoxListFilters.Items.Clear();
+                foreach (DataColumn col in spListData.Columns)
+                {
+                    ChkBoxListFilters.Items.Add(col.ColumnName, true);
+                }
+                ChkBoxListFilters.ItemCheck += ChkBoxListFilters_ItemCheck;
+            }
+        }
+
+        private void ChkBoxListFilters_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (GridData.Columns[e.Index] != null)
+            {
+                // Hiding the column when it's 
+                GridData.Columns[e.Index].Visible = (e.NewValue == CheckState.Checked);
+            }
+        }
+
+        private void ListTabs_Selected(object sender, TabControlEventArgs e)
+        {
+            // Show the column panel if the Data tab is selected
+            if (e.TabPage.Text.Equals("Data"))
+            {
+                SplitterGrids.Panel1Collapsed = false;
+                SplitterGrids.Panel1.Show();               
+            }
+            else
+            {
+                SplitterGrids.Panel1Collapsed = true;
+                SplitterGrids.Panel1.Hide();
+            }
         }
 
         private void PopulateSchema(string xml)

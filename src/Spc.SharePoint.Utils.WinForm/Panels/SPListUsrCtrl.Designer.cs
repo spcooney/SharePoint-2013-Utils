@@ -46,6 +46,9 @@
             this.TblHeader = new System.Windows.Forms.TableLayoutPanel();
             this.PicBoxTitle = new System.Windows.Forms.PictureBox();
             this.LblHeader = new System.Windows.Forms.Label();
+            this.SplitterGrids = new System.Windows.Forms.SplitContainer();
+            this.GrpColFilter = new System.Windows.Forms.GroupBox();
+            this.ChkBoxListFilters = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.SplitterTextBox)).BeginInit();
             this.SplitterTextBox.Panel1.SuspendLayout();
             this.SplitterTextBox.Panel2.SuspendLayout();
@@ -65,6 +68,11 @@
             this.SplitContProperties.SuspendLayout();
             this.TblHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterGrids)).BeginInit();
+            this.SplitterGrids.Panel1.SuspendLayout();
+            this.SplitterGrids.Panel2.SuspendLayout();
+            this.SplitterGrids.SuspendLayout();
+            this.GrpColFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // SplitterTextBox
@@ -119,7 +127,7 @@
             // 
             // SplitterControls.Panel2
             // 
-            this.SplitterControls.Panel2.Controls.Add(this.ListTabs);
+            this.SplitterControls.Panel2.Controls.Add(this.SplitterGrids);
             this.SplitterControls.Panel2.Padding = new System.Windows.Forms.Padding(3);
             this.SplitterControls.Size = new System.Drawing.Size(678, 555);
             this.SplitterControls.SplitterDistance = 28;
@@ -165,11 +173,12 @@
             this.ListTabs.Controls.Add(this.TabData);
             this.ListTabs.Controls.Add(this.TabProperties);
             this.ListTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListTabs.Location = new System.Drawing.Point(3, 3);
+            this.ListTabs.Location = new System.Drawing.Point(0, 0);
             this.ListTabs.Name = "ListTabs";
             this.ListTabs.SelectedIndex = 0;
             this.ListTabs.Size = new System.Drawing.Size(672, 520);
             this.ListTabs.TabIndex = 2;
+            this.ListTabs.Selected += new System.Windows.Forms.TabControlEventHandler(this.ListTabs_Selected);
             // 
             // TabSchema
             // 
@@ -209,7 +218,6 @@
             this.GridData.AllowUserToDeleteRows = false;
             this.GridData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridData.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.GridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridData.FilterAndSortEnabled = true;
             this.GridData.Location = new System.Drawing.Point(3, 3);
@@ -329,6 +337,48 @@
             this.LblHeader.Text = "SharePoint List";
             this.LblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // SplitterGrids
+            // 
+            this.SplitterGrids.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitterGrids.Location = new System.Drawing.Point(3, 3);
+            this.SplitterGrids.Name = "SplitterGrids";
+            this.SplitterGrids.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitterGrids.Panel1
+            // 
+            this.SplitterGrids.Panel1.Controls.Add(this.GrpColFilter);
+            this.SplitterGrids.Panel1Collapsed = true;
+            this.SplitterGrids.Panel1MinSize = 0;
+            // 
+            // SplitterGrids.Panel2
+            // 
+            this.SplitterGrids.Panel2.Controls.Add(this.ListTabs);
+            this.SplitterGrids.Size = new System.Drawing.Size(672, 520);
+            this.SplitterGrids.SplitterDistance = 62;
+            this.SplitterGrids.TabIndex = 3;
+            // 
+            // GrpColFilter
+            // 
+            this.GrpColFilter.Controls.Add(this.ChkBoxListFilters);
+            this.GrpColFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpColFilter.Location = new System.Drawing.Point(0, 0);
+            this.GrpColFilter.Name = "GrpColFilter";
+            this.GrpColFilter.Size = new System.Drawing.Size(672, 62);
+            this.GrpColFilter.TabIndex = 0;
+            this.GrpColFilter.TabStop = false;
+            this.GrpColFilter.Text = " Show/Hide Columns ";
+            // 
+            // ChkBoxListFilters
+            // 
+            this.ChkBoxListFilters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChkBoxListFilters.FormattingEnabled = true;
+            this.ChkBoxListFilters.HorizontalScrollbar = true;
+            this.ChkBoxListFilters.Location = new System.Drawing.Point(3, 16);
+            this.ChkBoxListFilters.MultiColumn = true;
+            this.ChkBoxListFilters.Name = "ChkBoxListFilters";
+            this.ChkBoxListFilters.Size = new System.Drawing.Size(666, 43);
+            this.ChkBoxListFilters.TabIndex = 0;
+            // 
             // SPListUsrCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +410,11 @@
             this.TblHeader.ResumeLayout(false);
             this.TblHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxTitle)).EndInit();
+            this.SplitterGrids.Panel1.ResumeLayout(false);
+            this.SplitterGrids.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitterGrids)).EndInit();
+            this.SplitterGrids.ResumeLayout(false);
+            this.GrpColFilter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -384,5 +439,8 @@
         private System.Windows.Forms.ComboBox DdListProperties;
         private System.Windows.Forms.RichTextBox RchTxtProperties;
         private System.Windows.Forms.Button BtnQueryProp;
+        private System.Windows.Forms.SplitContainer SplitterGrids;
+        private System.Windows.Forms.GroupBox GrpColFilter;
+        private System.Windows.Forms.CheckedListBox ChkBoxListFilters;
     }
 }

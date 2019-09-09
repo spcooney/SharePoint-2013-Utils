@@ -36,6 +36,7 @@
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             StopBgWorker(bwReadLines);
+            StopBgWorker(bwSplitFile);
             ModifyBtnAbility(BtnCancel, true);
             ModifyBtnAbility(BtnSplitFile, true);
             ModifyBtnAbility(BtnSelectFile, true);
