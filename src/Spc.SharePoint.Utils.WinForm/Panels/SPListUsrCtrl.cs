@@ -132,7 +132,7 @@
             PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
-                pleaseWait.Show(this);
+                pleaseWait.Show(this.Parent);
                 Application.DoEvents();
                 using (SPSite site = new SPSite(TxtSPListUrl.Text))
                 {
@@ -165,7 +165,7 @@
             PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
-                pleaseWait.Show(this);
+                pleaseWait.Show(this.Parent);
                 Application.DoEvents();
                 if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
                 {

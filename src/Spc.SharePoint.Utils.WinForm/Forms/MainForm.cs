@@ -174,12 +174,16 @@
         {
             UsrCtrlIisMgr = new IisMgrUsrCtrl();
             UsrCtrlIisMgr.Dock = DockStyle.Fill;
+            UsrCtrlIisMgr.Parent = this;
             UsrCtrlFileSplitter = new FileSplitterUsrCtrl();
             UsrCtrlFileSplitter.Dock = DockStyle.Fill;
+            UsrCtrlFileSplitter.Parent = this;
             UsrCtrlSPList = new SPListUsrCtrl();
             UsrCtrlSPList.Dock = DockStyle.Fill;
+            UsrCtrlSPList.Parent = this;
             UsrCtrlWinSvcs = new WinSvcsUsrCtrl();
             UsrCtrlWinSvcs.Dock = DockStyle.Fill;
+            UsrCtrlWinSvcs.Parent = this;
             UserControls.Add(UsrCtrlIisMgr);
             UserControls.Add(UsrCtrlFileSplitter);
             UserControls.Add(UsrCtrlSPList);
