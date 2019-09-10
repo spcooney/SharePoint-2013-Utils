@@ -132,8 +132,10 @@
             PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
+#if (RELEASE)
                 pleaseWait.Show(this.Parent);
                 Application.DoEvents();
+#endif
                 using (SPSite site = new SPSite(TxtSPListUrl.Text))
                 {
                     using (SPWeb web = site.OpenWeb())
@@ -145,17 +147,19 @@
             }
             catch (SPException spex)
             {
-                RchTxtSchema.Text = spex.Message;
+                MessageBox.Show(spex.Message);
                 Log.Error(spex);
             }
             catch (Exception ex)
             {
-                RchTxtSchema.Text = ex.Message;
+                MessageBox.Show(ex.Message);
                 Log.Error(ex);
             }
             finally
             {
+#if (RELEASE)
                 pleaseWait.Close();
+#endif
             }
             return null;
         }
@@ -165,8 +169,10 @@
             PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
+#if (RELEASE)
                 pleaseWait.Show(this.Parent);
                 Application.DoEvents();
+#endif
                 if (StringUtil.IsNullOrWhitespace(TxtSPListUrl.Text))
                 {
                     return;
@@ -177,18 +183,21 @@
                     return;
                 }
                 PopulateSchema(curList.SchemaXml);
-                PopulateListData(curList.Items.GetDataTable());
+                PopulateListData(curList, curList.Items.GetDataTable());
                 PopulatePropertiesDropDown(curList);
                 ListTabs.SelectedTab = TabData;
             }
             catch (Exception ex)
             {
-                RchTxtSchema.Text = ex.Message;
+                MessageBox.Show(ex.Message);
                 Log.Error(ex);
             }
             finally
             {
+#if (RELEASE)
                 pleaseWait.Close();
+#endif
+
             }
         }
 
@@ -204,9 +213,18 @@
             }
         }
 
-        private void PopulateListData(DataTable spListData)
+        private void PopulateListData(SPList list, DataTable spListData)
         {
-            GridData.DataSource = spListData;
+            try
+            {
+                GridData.DataSource = spListData;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                // Sometimes SharePoint complains about a column so attempt to re-bind
+                GridData.DataSource = curList.Items.GetDataTable();
+            }
             GridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             // Add the checkboxes to allow the user to show or hide columns
             if ((spListData != null) && (spListData.Columns.Count > 0))
@@ -283,7 +301,7 @@
             }
         }
 
-        #endregion
+#endregion
 
         private void TsmiShowAll_Click(object sender, EventArgs e)
         {
@@ -303,8 +321,8 @@
             }
         }
 
-        #region "Accessors"
+#region "Accessors"
 
-        #endregion
+#endregion
     }
 }
