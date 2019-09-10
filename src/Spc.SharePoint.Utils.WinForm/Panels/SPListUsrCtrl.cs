@@ -197,7 +197,6 @@
 #if (RELEASE)
                 pleaseWait.Close();
 #endif
-
             }
         }
 
@@ -241,16 +240,9 @@
 
         private void ChkBoxListFilters_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            //if (ChkBoxListFilters.Items[e.Index].Equals("Hide All"))
-            //{
-            //    foreach (DataGridViewColumn col in GridData.Columns)
-            //    {
-            //        col.Visible = (e.NewValue == CheckState.Checked);
-            //    }
-            //}
             if (GridData.Columns[e.Index] != null)
             {
-                // Hiding the column when it's 
+                // Hiding the column when it's checked
                 GridData.Columns[e.Index].Visible = (e.NewValue == CheckState.Checked);
             }
         }
@@ -301,7 +293,7 @@
             }
         }
 
-#endregion
+        #endregion
 
         private void TsmiShowAll_Click(object sender, EventArgs e)
         {
@@ -321,8 +313,8 @@
             }
         }
 
-#region "Accessors"
+        #region "Accessors"
 
-#endregion
+        #endregion
     }
 }
