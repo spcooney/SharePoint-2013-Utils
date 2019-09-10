@@ -35,6 +35,7 @@
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
             this.PnlMain = new System.Windows.Forms.Panel();
             this.StsBar = new System.Windows.Forms.StatusStrip();
+            this.ToolStripProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.MenuStr = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FontSizeMenuStr = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,7 @@
             this.FontSize12pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
             this.FontSize14pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
             this.FontSize16pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripProgress = new System.Windows.Forms.ToolStripProgressBar();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.SpltCnt)).BeginInit();
             this.SpltCnt.Panel1.SuspendLayout();
             this.SpltCnt.Panel2.SuspendLayout();
@@ -127,6 +128,13 @@
             this.StsBar.TabIndex = 1;
             this.StsBar.Text = "statusStrip1";
             // 
+            // ToolStripProgress
+            // 
+            this.ToolStripProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.ToolStripProgress.Name = "ToolStripProgress";
+            this.ToolStripProgress.Size = new System.Drawing.Size(100, 16);
+            this.ToolStripProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            // 
             // MenuStr
             // 
             this.MenuStr.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -192,13 +200,6 @@
             this.FontSize16pxMenuStr.Text = "16 px";
             this.FontSize16pxMenuStr.Click += new System.EventHandler(this.FontSize16pxMenuStr_Click);
             // 
-            // ToolStripProgress
-            // 
-            this.ToolStripProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
-            this.ToolStripProgress.Name = "ToolStripProgress";
-            this.ToolStripProgress.Size = new System.Drawing.Size(100, 16);
-            this.ToolStripProgress.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,5 +245,6 @@
         private System.Windows.Forms.ToolStripMenuItem FontSize16pxMenuStr;
         private System.Windows.Forms.ImageList ImgList;
         private System.Windows.Forms.ToolStripProgressBar ToolStripProgress;
+        private System.Windows.Forms.ToolTip ToolTip;
     }
 }

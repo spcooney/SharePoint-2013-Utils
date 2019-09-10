@@ -145,7 +145,7 @@
             PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
-#if (RELEASE)
+#if (!DEBUG)
                 pleaseWait.Show(this.Parent);
                 Application.DoEvents();
 #endif
@@ -170,7 +170,7 @@
             }
             finally
             {
-#if (RELEASE)
+#if (!DEBUG)
                 pleaseWait.Close();
 #endif
             }
@@ -182,7 +182,7 @@
             PleaseWaitForm pleaseWait = new PleaseWaitForm();
             try
             {
-#if (RELEASE)
+#if (!DEBUG)
                 pleaseWait.Show(this.Parent);
                 Application.DoEvents();
 #endif
@@ -207,7 +207,7 @@
             }
             finally
             {
-#if (RELEASE)
+#if (!DEBUG)
                 pleaseWait.Close();
 #endif
             }

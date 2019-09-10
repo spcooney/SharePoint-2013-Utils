@@ -65,18 +65,26 @@
             internal const string NodeSharePoint = "SharePoint";
             /// <summary>List</summary>
             internal const string NodeSharePointList = "List";
+            /// <summary>Click to query a SharePoint list</summary>
+            internal const string NodeSharePointListTool = "Click to query a SharePoint list";
             /// <summary>Feature</summary>
             internal const string NodeFeature = "Feature";
             /// <summary>IIS</summary>
             internal const string NodeIIS = "IIS";
             /// <summary>IIS Processes</summary>
             internal const string NodeIISProcesses = "IIS Processes";
+            /// <summary>Click to view all of the IIS processes on this machine</summary>
+            internal const string NodeIISProcessesTool = "Click to view all of the IIS processes on this machine";
             /// <summary>Windows</summary>
             internal const string NodeWindows = "Windows";
             /// <summary>IIS Processes</summary>
             internal const string NodeWinServices = "Win Services";
+            /// <summary>Click to view all of the SharePoint related Windows services</summary>
+            internal const string NodeWinServicesTool = "Click to view all of the SharePoint related Windows services";
             /// <summary>File Splitter</summary>
             internal const string NodeFileSplitter = "File Splitter";
+            /// <summary>Click to split a large file into multiple smaller files</summary>
+            internal const string NodeFileSplitterTool = "Click to split a large file into multiple smaller files";
         }
     }
 }

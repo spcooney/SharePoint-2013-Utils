@@ -29,6 +29,7 @@
             InitUserControls();
             InitForm();
             ToolStripProgress.Visible = false;
+            ToolTip.SetToolTip(this.SpltCnt, "Double click to auto-size the splitter");
         }
 
         #endregion
@@ -73,6 +74,7 @@
             TreeNode tnSPList = new TreeNode();
             tnSPList.Name = WinFormStrConstants.NodeNames.NodeSharePointList;
             tnSPList.Text = WinFormStrConstants.NodeText.NodeSharePointList;
+            tnSPList.ToolTipText = WinFormStrConstants.NodeText.NodeSharePointListTool;
             tnSPList.ImageIndex = 8;
             tnSPList.SelectedImageIndex = 11;
 
@@ -88,16 +90,19 @@
             TreeNode tnIISProcesses = new TreeNode();
             tnIISProcesses.Name = WinFormStrConstants.NodeNames.NodeIISProcesses;
             tnIISProcesses.Text = WinFormStrConstants.NodeText.NodeIISProcesses;
+            tnIISProcesses.ToolTipText = WinFormStrConstants.NodeText.NodeIISProcessesTool;
             tnIISProcesses.ImageIndex = 8;
             tnIISProcesses.SelectedImageIndex = 11;
             TreeNode tnFileSplitter = new TreeNode();
             tnFileSplitter.Name = WinFormStrConstants.NodeNames.NodeWinServices;
             tnFileSplitter.Text = WinFormStrConstants.NodeText.NodeWinServices;
+            tnFileSplitter.ToolTipText = WinFormStrConstants.NodeText.NodeWinServicesTool;
             tnFileSplitter.ImageIndex = 8;
             tnFileSplitter.SelectedImageIndex = 11;
             TreeNode tnWinSvcs = new TreeNode();
             tnWinSvcs.Name = WinFormStrConstants.NodeNames.NodeFileSplitter;
             tnWinSvcs.Text = WinFormStrConstants.NodeText.NodeFileSplitter;
+            tnWinSvcs.ToolTipText = WinFormStrConstants.NodeText.NodeFileSplitterTool;
             tnWinSvcs.ImageIndex = 8;
             tnWinSvcs.SelectedImageIndex = 11;
 
@@ -115,6 +120,7 @@
             // Add root to the tree
             TreeNav.Nodes.Add(tnDevTools);
             TreeNav.ExpandAll();
+            TreeNav.ShowNodeToolTips = true;
             string selNodeName = AppSettings.Instance.LastSelectedNodeName;
             if ((!String.IsNullOrWhiteSpace(selNodeName)) && (this.TreeNav != null))
             {
