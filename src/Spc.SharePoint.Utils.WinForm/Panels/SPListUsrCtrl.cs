@@ -245,6 +245,12 @@
                 // Sometimes SharePoint complains about a column so attempt to re-bind
                 GridData.DataSource = curList.Items.GetDataTable();
             }
+            if (this.Parent != null)
+            {
+                StatusStrip tspb = this.ParentForm.Controls["StsBar"] as StatusStrip;
+                tspb.Items["ToolStripRowCount"].Visible = true;
+                tspb.Items["ToolStripRowCount"].Text = ("Total Rows: " + GridData.Rows.Count.ToString("N0"));
+            }
             GridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             // Add the checkboxes to allow the user to show or hide columns
             if ((spListData != null) && (spListData.Columns.Count > 0))

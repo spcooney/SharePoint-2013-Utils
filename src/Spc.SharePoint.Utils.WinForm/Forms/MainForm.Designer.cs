@@ -45,6 +45,7 @@
             this.FontSize14pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
             this.FontSize16pxMenuStr = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ToolStripRowCount = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.SpltCnt)).BeginInit();
             this.SpltCnt.Panel1.SuspendLayout();
             this.SpltCnt.Panel2.SuspendLayout();
@@ -121,7 +122,8 @@
             // 
             this.StsBar.BackColor = System.Drawing.Color.White;
             this.StsBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripProgress});
+            this.ToolStripProgress,
+            this.ToolStripRowCount});
             this.StsBar.Location = new System.Drawing.Point(0, 631);
             this.StsBar.Name = "StsBar";
             this.StsBar.Size = new System.Drawing.Size(1146, 22);
@@ -200,6 +202,13 @@
             this.FontSize16pxMenuStr.Text = "16 px";
             this.FontSize16pxMenuStr.Click += new System.EventHandler(this.FontSize16pxMenuStr_Click);
             // 
+            // ToolStripRowCount
+            // 
+            this.ToolStripRowCount.Name = "ToolStripRowCount";
+            this.ToolStripRowCount.Size = new System.Drawing.Size(59, 17);
+            this.ToolStripRowCount.Text = "List Rows:";
+            this.ToolStripRowCount.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,5 +255,6 @@
         private System.Windows.Forms.ImageList ImgList;
         private System.Windows.Forms.ToolStripProgressBar ToolStripProgress;
         private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.ToolStripStatusLabel ToolStripRowCount;
     }
 }
