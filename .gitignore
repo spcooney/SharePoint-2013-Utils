@@ -154,3 +154,7 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/src/.vs/Spc.SharePoint.Utils/v15/Server/sqlite3/db.lock
+/src/.vs/Spc.SharePoint.Utils/v15/Server/sqlite3/storage.ide
+/src/.vs/Spc.SharePoint.Utils/v15/Server/sqlite3/storage.ide-shm
+/src/.vs/Spc.SharePoint.Utils/v15/Server/sqlite3/storage.ide-wal

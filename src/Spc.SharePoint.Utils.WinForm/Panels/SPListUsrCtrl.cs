@@ -60,12 +60,12 @@
             }
             catch (SPException spex)
             {
-                RchTxtProperties.Text = spex.Message;
+                MessageBox.Show(spex.Message);
                 Log.Error(spex);
             }
             catch (Exception ex)
             {
-                RchTxtProperties.Text = ex.Message;
+                MessageBox.Show(ex.Message);
                 Log.Error(ex);
             }
         }
@@ -102,11 +102,21 @@
             }
         }
 
+        /// <summary>
+        /// Sets the SharePoint list text box placeholder text.
+        /// </summary>
+        /// <param name="sender">The SharePoint list text box control.</param>
+        /// <param name="e">The SharePoint list text box leave event.</param>
         private void TxtSPListUrl_Leave(object sender, EventArgs e)
         {
             SetPlaceholderText();
         }
 
+        /// <summary>
+        /// The SharePoint list text box text changed event.  Responsible for saving the last text to the application settings.
+        /// </summary>
+        /// <param name="sender">The SharePoint list text box control.</param>
+        /// <param name="e">The SharePoint list text box text changed event.</param>
         private void TxtSPListUrl_TextChanged(object sender, EventArgs e)
         {
             AppSettings.Instance.LastSPListUrl = TxtSPListUrl.Text;
@@ -117,6 +127,9 @@
 
         #region "Methods"
 
+        /// <summary>
+        /// Ensures the splitter is at a minimum distance.
+        /// </summary>
         private void EnsureSplitterSize()
         {
             SplitterControls.SplitterDistance = 25;
@@ -200,6 +213,9 @@
             }
         }
 
+        /// <summary>
+        /// Populates various controls with application settings and default help text.
+        /// </summary>
         private void SetPlaceholderText()
         {
             if (StringUtil.IsNotNullOrWhitespace(AppSettings.Instance.LastSPListUrl))
@@ -212,6 +228,11 @@
             }
         }
 
+        /// <summary>
+        /// Populates the SharePoint list data to the data grid.
+        /// </summary>
+        /// <param name="list">The current SharePoint list.</param>
+        /// <param name="spListData">The current SharePoint list data table.</param>
         private void PopulateListData(SPList list, DataTable spListData)
         {
             try
@@ -238,6 +259,11 @@
             }
         }
 
+        /// <summary>
+        /// Checkbox checked event in the column show/hide control.
+        /// </summary>
+        /// <param name="sender">The checkboxlist control.</param>
+        /// <param name="e">The check event.</param>
         private void ChkBoxListFilters_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             if (GridData.Columns[e.Index] != null)
@@ -247,6 +273,11 @@
             }
         }
 
+        /// <summary>
+        /// Selected event for the tabs.
+        /// </summary>
+        /// <param name="sender">The tab control.</param>
+        /// <param name="e">The tab control event.</param>
         private void ListTabs_Selected(object sender, TabControlEventArgs e)
         {
             // Show the column panel if the Data tab is selected
@@ -262,6 +293,10 @@
             }
         }
 
+        /// <summary>
+        /// Responsible for displaying the SharePoint list XML schema.
+        /// </summary>
+        /// <param name="xml">The SharePoint list XML schema.</param>
         private void PopulateSchema(string xml)
         {
             if (StringUtil.IsNullOrWhitespace(xml))
@@ -295,16 +330,30 @@
 
         #endregion
 
+        /// <summary>
+        /// Show/hide control show all context menu item clicked event.
+        /// </summary>
+        /// <param name="sender">The show all context menu.</param>
+        /// <param name="e">The show all click event.</param>
         private void TsmiShowAll_Click(object sender, EventArgs e)
         {
             ToggleShowHideChecks(true);
         }
 
+        /// <summary>
+        /// Show/hide control show none context menu item clicked event.
+        /// </summary>
+        /// <param name="sender">The show none context menu.</param>
+        /// <param name="e">The show none click event.</param>
         private void TsmiShowNone_Click(object sender, EventArgs e)
         {
             ToggleShowHideChecks(false);
         }
 
+        /// <summary>
+        /// Toggles the show all or none check boxes.
+        /// </summary>
+        /// <param name="chkd">If true, show all columns.  Otherwise, false.</param>
         private void ToggleShowHideChecks(bool chkd)
         {
             for (int i = 0; i < ChkBoxListFilters.Items.Count; i++)
